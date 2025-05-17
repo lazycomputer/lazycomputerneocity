@@ -1,0 +1,110 @@
+<<TITLE: In-Depth Post Editing:>>
+<<AUTHOR: Scribblemakes:>>
+<<TAGS: Beginner:>>
+
+<<DESCRIPTION: A guide to writing posts:>>
+
+<<CONTENT:
+	<p>While the <a href="https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-09-05-08-QuickStartGuide" onclick="window.location.href='https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-09-05-08-QuickStartGuide'; window.location.reload();">Quick Start Guide</a> covers basic post-making, this guide will go into more detail about each part of the process.</p>
+	
+	<hr>
+	
+	<h3>Creating Text Files for Posts</h3>
+	<p>To create any post you need to start by making a new text file in your post folder. You can find what your post folder is by checking what <code>sc_upmw_folder_postStorage</code> is set to. If you haven't changed any of the settings, your post folder will be named 'scWidget_UniversalPostMaker_postData'.</p>
+	<p>When you make the file, the name of it will set the post's title and creation date. The date comes first, split by <kbd>-</kbd>s, and then the title using the format: <code>YEAR-MONTH-DAY-24HOUR-MINUTE-TITLE.txt</code>. For example: a post made on the 3rd of October, 2024, at 6:30pm with the title 'Post' would have a file named <code>2024-10-03-18-30-Post.txt</code>.</p>
+	<p style="margin-left:2em">The script sets this information by splitting up the name by the first 5 <kbd>-</kbd>s, so the file name <code>2024-10-03-18-30-Post-Name.txt</code> becomes 2024, 10, 3, 18, 30, and "Post-Name". If it's not important to set every time slot, such as not needing to set the hour and minute, you can shorten the file name to only include the information you do need, for example: a post made in 2024 can be shortened to <code>2024-Post.txt</code> (if <a href="https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-08-ChangingDefaultData" onclick="window.location.href='https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-08-ChangingDefaultData'; window.location.reload();">Default Settings</a> are active, preset dates will be given to the post). However, make sure that the date is always completed first before writing the title. Once the script sees text that is not a number it will stop adding new dates, for example: a post with the file name <code>2024-03-Post-01.txt</code> will be split into 2024, 3, and "Post-01".</p>
+	
+	<hr>
+	
+	<h3>Adding Posts to the Post List</h3>
+	<p>Once you've created your posts, you'll need to remember their file names and open the post list text file. Your post list will be whatever <code>sc_upmw_txtFile_postList</code> is set to. If you haven't changed any settings, then your post list will be the file named 'scWidget_UniversalPostMaker_postList.txt'</p>
+	<p>Inside the post list file you should write in your posts' file names, each on a new line. The order they appear in will determine how 'manual' sorting displays them. For example: a post list that looks like the following: <br>
+	  <code style="padding:1em">2024-Post1.txt<br>
+	  2024-Post2.txt<br>
+	  2023-Post3.txt<br>
+	  2024-Post4.txt</code><br>
+	  will display the posts in the same order that they're written, regardless of their date, if set to 'auto' / 'manual'.
+	  </p>
+	<p>Posts not added to the post list will not be visible in your webpage.</p>
+	
+	<hr>
+	
+	<h3>Using Default Post Information</h3>
+	<p>Default Post Information is information that's given to a post automatically if it isn't given inside its text file. If you have information that's repeated across your posts, such as the author or the links to other websites, you can set the default post information. Once the default information is set, every post will use that information as long as you don't change it inside the text file (the information in the text file always has priority). You can read more about default settings in the <a href="https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-08-ChangingSettings" onclick="window.location.href='https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-08-ChangingSettings'; window.location.reload();">Changing Settings guide</a>.</p>
+	
+	<hr>
+	
+	<h3>Adding Information to Posts</h3>
+	<p>Return to your post folder and open one of your post files. When you enter information into your post, you'll need to surround it with <kbd>&lt;&lt;INFO TYPE:</kbd> and <kbd>:&gt;&gt;</kbd>. These markers tell the script when information starts, ends, and what type it is. For example: to set the title of a post to 'Post Name' you would write <code>&lt;&lt;TITLE: Post Name :&gt;&gt;</code>. Make sure that you do <strong>not</strong> use <kbd>&lt;&lt;</kbd> or <kbd>&gt;&gt;</kbd> anywhere in your text file except to mark the start and end of information.</p>
+	<p>There are 15 types of information a post can be given in its text file. Each of these types are input into a HTML element as raw HTML text, so they can either be plain text (for example: <code>&lt;&lt;TITLE: Post Name :&gt;&gt;</code>) or as HTML (for example: <code>&lt;&lt;TITLE: &lt;strong&gt;Post Name&lt;/strong&gt; :&gt;&gt;</code>). If you're unfamiliar with using HTML, a good place to start is with the <a href="https://neocities.org/tutorial/html/1">Neocities HTML Guide</a>.</p>
+	<p>Information that can be added to posts:</p>
+	<ol>
+    <li><strong>TITLE</strong> - Title. Gives the post a title rather than using the file name.</li>
+      <ul><li>Example: <code>&lt;&lt;TITLE: Post Title :&gt;&gt;</code></li></ul>
+    <li><strong>DATEPOST</strong> - Date Post. How the date will be written on a full view post.</li>
+      <ul><li>Example: <code>&lt;&lt;DATEPOST: Posted on the DDTH of MML, YYYY, at HHS:MINZ XM :&gt;&gt;</code></li></ul>
+      <ul>
+        <li>DATEPOST and DATELINK set the formatting of how the post's date is displayed, not <i>what</i> the date is. You can use the following codes, which will be replaced by the post's date:</li>
+        <li>YY = Short Year (87)</li>      
+        <li>YYYY = Long year (1987)</li>
+        <li>MML = Long Month (January)</li>
+        <li>MMS = Short Month (Jan)</li>
+        <li>MMZ = Number Month with leading zero (01)</li>
+        <li>MM = Number Month (1)</li>
+        <li>DDTH = Day as an ordinal number (1st)</li>
+        <li>DDN = Day name (Monday)</li>
+        <li>DDS = Day name short (Mon)</li>
+        <li>DDZ = Day number with leading zero (01)</li>
+        <li>DD = Day number (1)</li>
+        <li>HHSZ = Hour in 12hr time with leading zero (01-12)</li>
+        <li>HHS = Hour in 12hr time (1-12)</li>
+        <li>HHZ = Hour in 24hr time with leading zero (00-23)</li>
+        <li>HH = Hour in 24hr time (0-23)</li>
+        <li>MINZ = Minutes with leading zero (00)</li>
+        <li>MIN = Minutes (0)</li>
+        <li>XM = Am / Pm</li>
+      </ul>
+    <li><strong>DATELINK</strong> - Date Link. How the date will be written on a post link.</li>
+      <ul><li>Example: <code>&lt;&lt;DATELINK: DDZ/MMZ/YYYY :&gt;&gt;</code></li>
+      <li>DATELINK uses the same formatting codes as DATEPOST above.</li></ul>
+    <li><strong>AUTHOR</strong> - Author. The name of the author.</li>
+      <ul><li>Example: <code>&lt;&lt;AUTHOR: Author Name :&gt;&gt;</code></li></ul>
+    <li><strong>TAGS</strong> - Tags. Categories the post falls under (separate tags with a <kbd>;</kbd>. Tags are case-sensitive, so the tags 'tag1' and 'Tag1' are considered two different tags.</li>
+      <ul><li>Example: <code>&lt;&lt;TAGS: Tag1; Tag2; Tag3 :&gt;&gt;</code></li></ul>
+    <li><strong>DESCRIPTION</strong> - Description. A short summary of the post's contents.</li>
+      <ul><li>Example: <code>&lt;&lt;DESCRIPTION: A post about posts :&gt;&gt;</code></li></ul>
+    <li><strong>CONTENT</strong> - Content. The main text and body of the post. It's recommended to use HTML script for this section to add images, links, and more. Consider it similar to the body of your website.</li>
+      <ul><li>Example: <code>&lt;&lt;CONTENT: &lt;p&gt;The content of my post. A link to &lt;a href="neocities.org"&gt;Neocities&lt;/a&gt;&lt/p&gt; :&gt;&gt;</code></li></ul>
+    <li><strong>TITLEIMG</strong> - Title Image. The URL for the main image. This will be given to an image element so it does not use HTML script, only include the URL for the image. This title image is usually seen inside the full body of the post and functions as the first image seen or the post's banner.</li>
+      <ul><li>Example: <code>&lt;&lt;TITLEIMG: https://neocities.org/img/cat.png :&gt;&gt;</code></li></ul>
+    <li><strong>TITLEIMGALT</strong> - Title Image ALT. The ALT text for the main image. This is given to an image element so it does not use HTML script, only use plain text. ALTs also cannot use the <kbd>"</kbd> character.</li>
+      <ul><li>Example: <code>&lt;&lt;TITLEIMGALT: The Neocities mascot, a cat, holding tools. :&gt;&gt;</code></li></ul>
+    <li><strong>THUMBIMG</strong> - Thumb Image. The URL for the thumbnail for the post. This will be given to an image element so it does not use HTML script, only include the URL for the image. This thumbnail image is usually seen in the list of available posts and should use a small image (for example, 1MB or smaller) so your website's load time is reduced.</li>
+      <ul><li>Example: <code>&lt;&lt;THUMBIMG: https://neocities.org/img/cat.png :&gt;&gt;</code></li></ul>
+    <li><strong>THUMBIMGALT</strong> - Thumb Image ALT. The ALT text for the thumbnail. This is given to an image element so it does not use HTML script, only use plain text. ALTs also cannot use the <kbd>"</kbd> character.</li>
+      <ul><li>Example: <code>&lt;&lt;THUMBIMGALT: The Neocities mascot, a cat, holding tools. :&gt;&gt;</code></li></ul>
+    <li><strong>LINKS</strong> - Links. An additional section dedicated to links, but it can hold any additional content. It's recommended to use HTML here to add any links to other websites you'd like to share.</li>
+      <ul><li>Example: <code>&lt;&lt;LINKS: &lt;a href="neocities.org"&gt;Neocities&lt;/a&gt; &lt;a href="scribblemakes.com"&gt;Scribblemakes&lt;/a&gt; :&gt;&gt;</code></li></ul>
+    <li><strong>COMMENTS</strong> - Comments. An additional section dedicated to a comments section, but it can hold any additional content. Getting script into your post to make a comment section work is more difficult than writing a basic post, check the <a href="https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-15-AddingScriptsToYourPosts" onclick="window.location.href='https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-15-AddingScriptsToYourPosts'; window.location.reload();">Adding Scripts to your Posts guide</a> to learn more.</li>
+      <ul><li>Example: <code>&lt;&lt;COMMENTS: &lt;div class="commentBox"&gt;No Comments Yet!&lt;/div&gt; :&gt;&gt;</code></li></ul>
+    <li><strong>CLASSES</strong> - Classes. Additional classes added to post links and the full post viewer (separate classes with a <kbd>;</kbd>).</li>
+      <ul><li>Example: <code>&lt;&lt;CLASSES: pinkBg; redText :&gt;&gt;</code></li></ul>
+    <li><strong>REDIRECT</strong> - Redirect. A URL link. When a post with a redirect value is clicked it will automatically open this link. Make sure to use plain text only.</li>
+      <ul><li>Example: <code>&lt;&lt;REDIRECT: https://neocities.org :&gt;&gt;</code></li>
+        <li>If you plan to link a post, you'll need to add a specific type of link that reloads the page. This link is: <code>&lt;a href="URL TO POST" onclick="window.location.href='URL TO POST'; window.location.reload();"&gt;Text for Link&lt;/a&gt;</code>. Replace 'URL TO POST' with the link to your post, which you can find by opening the post on your webpage and copying the link.</li></ul>
+	</ol>
+	<p>Once you've added the post's information and the post's file name has been added to the post list, you can reload your webpage and check if the post's been added correctly. If there are no errors with the post list or the post itself, but the post isn't showing onyour webpage, you may need to reload your cache.</p>
+:>>
+
+<<TITLEIMGALT: An image with the title of the post:>>
+<<THUMBIMGALT: An image thumbnail with 'In-Depth Post Editing' written on it:>>
+
+<<COMMENTS::>>
+<<LINKS: <a href="https://scribblemakes.com/code">Return to Code Page</a> :>>
+
+
+
+
+
+
+

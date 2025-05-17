@@ -1,0 +1,54 @@
+<<TITLE: Loading Bars and Display Customisation:>>
+<<AUTHOR: Scribblemakes:>>
+<<TAGS: Intermediate:>>
+
+<<DESCRIPTION: A guide to changing your loading bars and customising your widget with CSS and settings :>>
+
+<<CONTENT:
+  <p>This guide will cover how to customise your widget's appearance without editing the CSS style sheet, however it is recommended to use this guide <i>with</i> the <a href="https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-16-CreatingACustomStylesheet" onclick="window.location.href='https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-16-CreatingACustomStylesheet'; window.location.reload();">Creating a Custom Stylesheet guide</a> for the best outcome. This guide will also use widget settings, which you can read more about in the <a href="https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-08-ChangingSettings" onclick="window.location.href='https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-08-ChangingSettings'; window.location.reload();">Changing Settings guide</a>.</p>
+  
+  <hr>
+  
+  <h3>Creating a Custom Loading Bar</h3>
+  <p>When the widget is loading the post text files and the post list, you can have it show a loading bar by setting the <code>sc_upmw_displaySetting_startWLoad</code> variable to <code>true</code>. When that's set to true, the widget will show whatever HTML is in the <code>sc_upmw_displaySetting_loadContent</code> setting. By default, loading displays are active and show an empty div with the class <code>sc_upmw_loadingPlaceholder</code> added. This div is then styled with the default CSS stylesheet to have a slow blinking animation with the text 'Loading' added as a ::before element.</p>
+  <p>Loading displays are placed inside of display containers as children (archives, galleries, and highlights) while text posts are loading. When the text files are finished loading, the container is completely emptied of children and then filled with the post display as normal.</p>
+  
+  <hr>
+  
+  <h3>Formatting a Display Container</h3>
+  <p>Changing how displays are laid out (where the navigation, posts, search bar, etc are) can be done through the widget's settings, specifically the <code>sc_upmw_displaySetting_highlightOrder</code>, <code>sc_upmw_displaySetting_archiveOrder</code>, and <code>sc_upmw_displaySetting_galleryOrder</code> settings. More information about these settings are in the <a href="https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-08-ChangingSettings" onclick="window.location.href='https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-08-ChangingSettings'; window.location.reload();">Changing Settings guide</a>. It's recommended to set these and the CSS layout (such as: using grids) so the tab order is logical, rather than using CSS only.</p>
+  
+  <hr>
+  
+  <h3>Formatting Post Links and Full Posts</h3>
+  <p>Similarly to containers, posts can be formatted through the widget's settings. The settings to look for are:</p>
+  <ul>
+    <li><code>sc_upmw_displayStructure_allLink</code></li>
+    <li><code>sc_upmw_displayStructure_allPostHeader</code></li>
+    <li><code>sc_upmw_displayStructure_allPostBody</code></li>
+    <li><code>sc_upmw_displayStructure_allPostFooter</code></li>
+    <li><code>sc_upmw_displayStructure_archiveLink</code></li>
+    <li><code>sc_upmw_displayStructure_galleryLink</code></li>
+    <li><code>sc_upmw_displayStructure_highlightLink</code></li>
+  </ul>
+  <p>The first setting (ending in <code>_allLink</code>) is the default formatting for all posts when they're being shown as links. The last three settings override the first setting, changing how the links appear depending on the container's type ('archive', 'gallery', and 'highlight'). The settings <code>sc_upmw_displayStructure_allPostHeader></code>, <code>sc_upmw_displayStructure_allPostBody</code>, and <code>sc_upmw_displayStructure_allPostFooter</code> determine how posts look when they're opened to be fully visible. These settings affect every post, regardless of what type of display container they're in.</p>
+  
+  <hr>
+  
+  <h3>Additional Customisation</h3>
+  <p>The information above is all available in the <a href="https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-08-ChangingSettings" onclick="window.location.href='https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-08-ChangingSettings'; window.location.reload();">Changing Settings guide</a>, and there are additional ways to customise your widget in that guide. For example: You can change the text displayed in the labels near the search bar and date selections, restrict and re-order what posts are visible in different display containers, and change how the navigation bar displays page numbers.</p>
+  <p>It's recommended to choose your widget settings first before starting to make your own CSS stylesheet (which you can read more about in the <a href="https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-16-CreatingACustomStylesheet" onclick="window.location.href='https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-16-CreatingACustomStylesheet'; window.location.reload();">Creating a Custom Stylesheet guide</a>). The settings in the widget help build a more accessible and faster-running webpage, rather than relying on CSS to hide elements after spending time loading them.</p>
+:>>
+
+<<TITLEIMGALT: An image with the title of the post:>>
+<<THUMBIMGALT: An image thumbnail with 'Loading Bars and Display Customisation' written on it:>>
+
+<<COMMENTS::>>
+<<LINKS: <a href="https://scribblemakes.com/code">Return to Code Page</a> :>>
+
+
+
+
+
+
+

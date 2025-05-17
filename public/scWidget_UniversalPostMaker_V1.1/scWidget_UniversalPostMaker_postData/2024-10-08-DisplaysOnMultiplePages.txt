@@ -1,0 +1,25 @@
+<<TITLE: Displays on Multiple Pages:>>
+<<AUTHOR: Scribblemakes:>>
+<<TAGS: Beginner:>>
+
+<<DESCRIPTION: A guide on using the same script across multiple HTML pages:>>
+
+<<CONTENT:
+	<p>This guide will primarily cover using the same script across multiple webpages by changing its settings; it also covers how to use different post lists across your website.</p>
+	<p>Before setting up your script, you may have noticed that the widget only works on HTML pages in the same folder as it. This is because the script, when first downloaded, has its file locations set relative to the folder (<a href="https://stackoverflow.com/questions/2005079/absolute-vs-relative-urls">read more about absolute and relative links here</a>). To fix this, you'll need to find the default setting: <code>sc_upmw_folder_postStorage</code> (<a href="https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-08-ChangingSettings" onclick="window.location.href='https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-08-ChangingSettings'; window.location.reload();">read more about default and local settings in the UPMW</a>) and change it to a link relative to your website's <i>index</i>.</p>
+	<p>As an example: on a website with the posts in the following directory (blog_folder -> post_folder) the index-relative link to that folder's posts would be <code>/blog_folder/post_folder/</code> for the <code>sc_upmw_folder_postStorage</code> setting. The <code>/</code> at the start tells the script to return to the starting folder with your <code>index.html</code> file. Once you've changed this setting, you should also change your post list location setting: <code>sc_upmw_txtFile_postList</code>.</p>
+	<p>The <code>sc_upmw_txtFile_postList</code> setting and the <code>sc_upmw_folder_postStorage</code> setting can both be set as default or local, but it's more practical to have multiple post list files than multiple post folders. Just like <code>sc_upmw_folder_postStorage</code>, you'll want to set this as an index-relative link to your text file. For example: a post file with the name <code>postList_blog.txt</code> in the following directory (blog_folder -> post_list_folder) would be linked as <code>/blog_folder/post_list_folder/postList_blog.txt</code>.</p>
+:>>
+
+<<TITLEIMGALT: An image with the title of the post:>>
+<<THUMBIMGALT: An image thumbnail with 'Displays on Multiple Pages' written on it:>>
+
+<<COMMENTS::>>
+<<LINKS: <a href="https://scribblemakes.com/code">Return to Code Page</a> :>>
+
+
+
+
+
+
+

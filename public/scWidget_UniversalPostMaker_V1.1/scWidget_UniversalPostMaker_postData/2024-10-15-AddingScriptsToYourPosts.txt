@@ -1,0 +1,57 @@
+<<TITLE: Adding Scripts to your Posts:>>
+<<AUTHOR: Scribblemakes:>>
+<<TAGS: Advanced:>>
+
+<<DESCRIPTION: A guide to making your posts interactive with javascript:>>
+
+<<CONTENT:
+  <p>This guide assumes you are familiar with javascript and know how to use it. If you're unfamiliar with javascript, you can start learning it on <a href="https://www.w3schools.com/js">W3Schools</a>.</p>
+	<p>Scripts in posts are written the same way scripts are written in a HTML file: with a <code>&lt;script&gt;</code> tag and javascript. These scripts need to be inside the post's information tags, for example: <code>&lt;&lt;COMMENTS: &lt;script&gt;console.log("Script running");&lt;/script&gt; :&gt;&gt;</code>.</p>
+	<p>However, unlike normal HTML script elements, these scripts are repeated throughout every post element. Whenever that post's script information (specifically, the one containing the script) is displayed the script will run again, so variables and functions cannot be declared inside of a post's script, and components with IDs or <code>document.getElementsByClassName()</code> may act unpredictably. If you need to use a function or variables, you'll need to set them in the script section of your HTML page above the line reading <code>sc_upmw_Start();</code>.</p>
+	
+	<hr>
+	
+	<h3>Accessing the Post and Display Information</h3>
+	<p>When a script is added to any part of a post it's automatically given a comment with which post object it uses to display information (You can also refer to the post's position in your Post List text file). For example: if a script on a post has the added comment "/* Post information from: sc_upmw_postList[4] */" then the 5th post in the Post List text file is being used, and you can access that information with the <code>sc_upmw_postList</code> array.</p>
+	<p>The attributes you can access with the <code>sc_upmw_postList</code> object (replacing INDEX with the number in the comment) are:</p>
+	<ul>
+	  <li><code>sc_upmw_postList[INDEX].index</code> = The index of the post in the main post array (Integer)</li>
+	  <li><code>sc_upmw_postList[INDEX].url</code> = The post's text file URL (URL String)</li>
+	  <li><code>sc_upmw_postList[INDEX].rawFile</code> = The content of the post's text file (String)</li>
+	  <li><code>sc_upmw_postList[INDEX].title</code> = The title of the post (String)</li>
+	  <li><code>sc_upmw_postList[INDEX].date</code> = The post's date in UTC (Date Object)</li>
+	  <li><code>sc_upmw_postList[INDEX].datePostText</code> = The date of the post as written in full view (String)</li>
+	  <li><code>sc_upmw_postList[INDEX].dateLinkText</code> = The date of the post as written in links (String)</li>
+	  <li><code>sc_upmw_postList[INDEX].author</code> = The author of the post (String)</li>
+	  <li><code>sc_upmw_postList[INDEX].tagList</code> = An array of tags applied to the post (String Array)</li>
+	  <li><code>sc_upmw_postList[INDEX].desc</code> = The post's description (String)</li>
+	  <li><code>sc_upmw_postList[INDEX].cont</code> = The content of the post (String)</li>
+	  <li><code>sc_upmw_postList[INDEX].titleImg</code> = The main image's URL (URL String)</li>
+	  <li><code>sc_upmw_postList[INDEX].titleImgAlt</code> = The main image's ALT text (String)</li>
+	  <li><code>sc_upmw_postList[INDEX].thumbImg</code> = The thumbnail image's URL (URL String)</li>
+	  <li><code>sc_upmw_postList[INDEX].thumbImgAlt</code> = The main thumbnail's ALT text (String)</li>
+	  <li><code>sc_upmw_postList[INDEX].links</code> = The post's additional links, or a custom section (String)</li>
+	  <li><code>sc_upmw_postList[INDEX].comment</code> = The post's comment section, or a custom section (String)</li>
+	  <li><code>sc_upmw_postList[INDEX].classAdd</code> = The post's additional classes (String Array)</li>
+	  <li><code>sc_upmw_postList[INDEX].redirect</code> = The URL the post opens instead of opening the post (URL String)</li>
+	  <li><code>sc_upmw_postList[INDEX].scheduleEdit</code> = If the post should be greyed or hidden due to posting in the future (Boolean)</li>
+	  <li><code>sc_upmw_postList[INDEX].linkHTML_archive</code> = The post's HTML text for links in archives (String)</li>
+	  <li><code>sc_upmw_postList[INDEX].linkHTML_gallery</code> = The post's HTML text for links in galleries (String)</li>
+	  <li><code>sc_upmw_postList[INDEX].linkHTML_highlight</code> = The post's HTML text for links in highlights (String)</li>
+	  <li><code>sc_upmw_postList[INDEX].postHTML</code> = The post's HTML text for full view (String)</li>
+	</ul>
+	<p>As an example of how to use this information, you could have a script (for post 0) check if the post has a description and then act on it if it does: <code>&lt;&lt;COMMENTS: &lt;script&gt;if (sc_upmw_postList[0].desc != "") {console.log(sc_upmw_postList[0].desc);}&lt;/script&gt; :&gt;&gt;</code></p>
+:>>
+
+<<TITLEIMGALT: An image with the title of the post:>>
+<<THUMBIMGALT: An image thumbnail with 'Adding Scripts to your Posts' written on it:>>
+
+<<COMMENTS::>>
+<<LINKS: <a href="https://scribblemakes.com/code">Return to Code Page</a> :>>
+
+
+
+
+
+
+

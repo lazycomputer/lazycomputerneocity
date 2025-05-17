@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Internal Head Content -->
+    <title>Universal Post Maker - Scribblemakes Widget</title>
+    <link href="scWidget_UniversalPostMaker_styleBasic.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+	
+	<h1>Universal Post Maker</h1>
+	<p>This widget is under construction, check back later!</p>
+	<p>Read more about, and download, the widget on <a href="https://scribblemakes.com/code#2024-09-30-scWidget_UniversalPostMaker">Scribblemakes.com/code</a></p>
+	<div style="width:100%;max-width:900px;margin:0 auto;">
+  	<noscript class="sc_upmw_noScript">This widget only works with Javascript. Enable Javascript to access this widget</noscript>
+	  <h2>Beginner's Guides</h2>
+  	<div class="sc_upmw_classHighlight sc_upmw_tagInc:Beginner"></div>
+  	<h2>Beyond Beginner</h2>
+  	<p>These guides assume you're familiar with basic CSS, HTML, and have read the previous guides. If you're unfamiliar with HTML, you can start with the <a href="https://neocities.org/tutorial/html/1">Neocities HTML Guide</a>.</p>
+  	<div class="sc_upmw_classHighlight sc_upmw_tagExc:Beginner"></div>
+  	
+  	<h2>All Guides</h2>
+  	<div class="sc_upmw_classGallery sc_upmw_perPage:4"></div>
+  	<div class="sc_upmw_classArchive sc_upmw_perPage:0"></div>
+  	
+  	<h2>Full Posts</h2>
+  	<div class="sc_upmw_classArchive sc_upmw_displayFormat:full"></div>
+  </div>
+	
+	<!-- Scripts -->
+	<script src="scWidget_UniversalPostMaker_script.js"></script>
+	<script>
+	  // Put any variable changes here for individial page settings (i.e. changing the post format txt file location)
+	  // You can delete any variables in this section (excluding the function at the bottom) without error
+    // File and folder directory variables
+    sc_upmw_txtFile_postList = 'scWidget_UniversalPostMaker_postList.txt'; // Pathway to the post list txt file
+    sc_upmw_folder_postStorage = 'scWidget_UniversalPostMaker_postData/';   // Pathway to the post folder
+
+    // Class names for post display containers and tag-limits
+    sc_upmw_containerClass_archive = 'sc_upmw_classArchive';      // Class used for archive displays
+    sc_upmw_containerClass_gallery = 'sc_upmw_classGallery';      // Class used for gallery displays
+    sc_upmw_containerClass_highlight = 'sc_upmw_classHighlight';  // Class used for highlight display
+    sc_upmw_containerClass_fullPostMarker = 'sc_upmw_displayFormat_full'; // Class used for displays with full posts
+    sc_upmw_containerClass_tagIncluder = 'sc_upmw_tagInc:';       // Use with tags to include tags in a display
+                                                                  // E.G. "sc_upmw_tagInc:tag1;tag2;tag3"
+    sc_upmw_containerClass_tagExcluder = 'sc_upmw_tagExc:';       // Use with tags to exclude tags in a display
+                                                                  // E.G. "sc_upmw_tagExc:tag1;tag2;tag3"
+    sc_upmw_containerClass_postsPerPage = 'sc_upmw_perPage:';     // Use with a number to set how many posts are shown at once
+                                                                  // E.G. "sc_upmw_perPage:5"
+    sc_upmw_containerClass_postDisplayFormat = 'sc_upmw_displayFormat:'; // Use with 'link', 'expand', and 'full'
+                                                                  // E.G. "sc_upmw_displayFormat:link"
+    sc_upmw_containerClass_postContainer = "sc_upmw_postContainer"; // Class used for post containers inside displays
+    sc_upmw_containerClass_postEmptyContainer = "sc_upmw_postEmptyContainer"; // Class used for empty post containers
+    sc_upmw_containerClass_searchContainer = "sc_upmw_searchContainer"; // Class used for search bars inside displays
+    sc_upmw_containerClass_searchEmptyContainer = "sc_upmw_searchEmptyContainer"; // Class used for empty search containers
+    sc_upmw_containerClass_searchOptionContainer = "sc_upmw_searchOptionContainer"; // Class used for checkbox container
+    sc_upmw_containerClass_searchOptionCustom = "sc_upmw_searchOptionCustom"; // Class used for custom checkboxes
+    sc_upmw_containerClass_sortContainer = "sc_upmw_sortContainer"; // Class used for sort dropdown container inside displays
+    sc_upmw_containerClass_sortEmptyContainer = "sc_upmw_sortEmptyContainer"; // Class used for empty sort containers
+    sc_upmw_containerClass_tagContainer = "sc_upmw_tagContainer"; // Class used for the tag container inside displays
+    sc_upmw_containerClass_tagEmptyContainer = "sc_upmw_tagEmptyContainer"; // Class used for empty tag containers
+    sc_upmw_containerClass_tagButtonIncluded = "sc_upmw_tagButton_included";  // Class used for included tag buttons
+    sc_upmw_containerClass_tagButtonExcluded = "sc_upmw_tagButton_excluded";  // Class used for excluded tag buttons
+    sc_upmw_containerClass_dateContainer = "sc_upmw_dateContainer"; // Class used for date search containers
+    sc_upmw_containerClass_dateEmptyContainer = "sc_upmw_dateEmptyContainer"; // Class used for empty date containers
+    sc_upmw_containerClass_navContainer = "sc_upmw_navContainer"; // Class used for 'next' and 'prev' buttons in displays
+    sc_upmw_containerClass_navEmptyContainer = "sc_upmw_navEmptyContainer"; // Class used for empty nav containers
+    sc_upmw_containerClass_navPageNumber = "sc_upmw_navPageNumber"; // Class used for the page numbers between << and >>
+    sc_upmw_containerClass_navCurrentPage = "sc_upmw_navCurrentPage"; // Class used for the current page visible
+
+    // Time and date setup
+    sc_upmw_timezone = 10;  // What your timezone is compared to UTC, for example: AEST is UTC+10
+    sc_upmw_postTimeSetting_defaultYear = 2024; // Uses this year if no date is provided
+    sc_upmw_postTimeSetting_defaultMonth = 1;   // Uses this month if no date is provided
+    sc_upmw_postTimeSetting_defaultDay = 1;     // Uses this day if no date is provided
+    sc_upmw_postTimeSetting_defaultHour = 0;    // Uses this hour if no date is provided (24hr time)
+    sc_upmw_postTimeSetting_defaultMinute = 0;  // Uses this minute if no date is provided
+    sc_upmw_postTimeSetting_linkDateFormat = "Posted DD/MM/YY";  // How the date is formatted on links to posts
+    sc_upmw_postTimeSetting_postDateFormat = "Posted on MML DDTH, YYYY at HHS:MINXM";  // How the date is formatted on open posts
+    // Date format below, leave variable empty to hide date
+    /*  YY = Short year (87), YYYY = Long year (1987)
+      MML = Long Month (January), MMS = Short Month (Jan), MMZ = Number Month with leading zero (01), MM = Number Month
+      DDTH = Day with th (1st), DDN = Day name (Monday), DDS = Day name short (Mon), DDZ = Day number with leading zero (01), DD = Day number
+      HHSZ = Hour in 12hr time with leading zero (01-12), HHS = Hour in 12hr time (1-12), HHZ = Hour in 24hr time with leading zero (00-23), HH = Hour in 24hr time
+      MINZ = Minutes with leading zero (00), MIN = Minutes (0)
+      XM = Am / Pm  */
+
+    // Display post settings
+    sc_upmw_postDisplaySetting_titleSplitType = "camelCase";  // Determines how to display titles based on file names
+                                                              // "camelCase" splits words based on capitalisation
+                                                              // "underscore" splits words based on the _ character
+                                                              // "none" does not split the title and displays as-is
+    sc_upmw_postDisplaySetting_scheduling = true; // If true, hide / alter posts dated for the future
+    sc_upmw_postDisplaySetting_scheduledHidden = true;  // If true, posts dated for the future are hidden
+                                                        // If false, future posts are visible but inaccessible
+    sc_upmw_postDisplaySetting_postFullscreenID = "sc_upmw_postFullscreen"; // What the fullscreen post ID is
+    sc_upmw_postDisplaySetting_postFullscreen_redirectClass = "sc_upmw_postFullScreen_redirect";  // Redirected post class
+    sc_upmw_postDisplaySetting_postFullscreen_scheduledClass = "sc_upmw_postFullScreen_scheduled";  // Scheduled post class
+    sc_upmw_postDisplaySetting_postFullscreen_closeButtonText = "X";  // What text is in the close button
+    sc_upmw_postDisplaySetting_postFullscreen_prevButtonText = "<";   // What text is in the previous button
+    sc_upmw_postDisplaySetting_postFullscreen_nextButtonText = ">";   // What text is in the previous button
+
+    // Default post information
+    // These properties are used if a post doesn't supply the information
+    sc_upmw_postDefaultActive = true; // If true, replaces missing values with defaults. If false, leaves values empty
+    sc_upmw_postDefaultProperty_title = "Post Name Not Found";                                  // Title of Post
+    sc_upmw_postDefaultProperty_datePostText = "Posted DDTH of MML, YYYY";                      // Post Date Format
+    sc_upmw_postDefaultProperty_dateLinkText = "YYYY/MMZ/DDZ";                                  // Link Date Format
+    sc_upmw_postDefaultProperty_author = window.location.href.split("//")[1].split(".")[0];     // Author Name
+    sc_upmw_postDefaultProperty_tagList = ["post", "defaultPost"];                              // Post Categories
+    sc_upmw_postDefaultProperty_desc = "Post summary";                                          // Link Description
+    sc_upmw_postDefaultProperty_cont = "<p>This is where the content of your post will go</p>"; // Post Content
+    sc_upmw_postDefaultProperty_titleImg = "scWidget_UniversalPostMaker_postData/default_title.png";                               // Main Image
+    sc_upmw_postDefaultProperty_titleImgAlt = "Image Alt entered here";                         // Main Image ALT
+    sc_upmw_postDefaultProperty_thumbImg = "scWidget_UniversalPostMaker_postData/default_thumbnail.png";                               // Thumbnail Image
+    sc_upmw_postDefaultProperty_thumbImgAlt = "Thumbnail Alt entered here";                     // Thumbnail Image ALT
+    sc_upmw_postDefaultProperty_links = "<a href='https://neocities.org'>Neocities</a>";        // Links to highlight
+    sc_upmw_postDefaultProperty_comment = "";       // Extra widget section
+    // To make image finding easier, these variables tell the script what the suffix is
+    sc_upmw_postDefaultProperty_classAdd = [""];                                                // What classes to add
+    sc_upmw_postDefaultProperty_redirect = "";                                                  // URL to link to when clicked on, leave blank to open the post normally
+    sc_upmw_postAutoFinder_imageLookup = true;                  // Will only look for images automatically if true
+    sc_upmw_postAutoFinder_titleImgSuffix = "_title.png";       // Looks for "POSTURL" + this variable
+    sc_upmw_postAutoFinder_thumbImgSuffix = "_thumbnail.png";   // Looks for "POSTURL" + this variable
+                                                                  // e.g. "2024-PostName.txt" -> "2024-PostName_image.png"
+
+    // Display container structures for posts and links
+    // How display containers show posts and the links to those posts. Put in order of when elements should appear
+    // The 'all' variables will be used if display container specific variables are missing, 'all' post variables always have
+      // a header, body, and footer
+    // Elements: title; datePost; dateLink; author; tags; description; content; titleImg; thumbImg; comments;
+            // links; share;
+    sc_upmw_displayStructure_allLink = "thumbImg;title;dateLink;author;tags;description";
+    sc_upmw_displayStructure_allPostHeader = "title;datePost;author;tags;titleImg";
+    sc_upmw_displayStructure_allPostBody = "content;comments";
+    sc_upmw_displayStructure_allPostFooter = "links;share";
+    sc_upmw_displayStructure_archiveLink = "title;dateLink;description";
+    sc_upmw_displayStructure_galleryLink = "thumbImg;title;tags";
+    sc_upmw_displayStructure_highlightLink = "thumbImg;title";
+    // Class names for display container posts
+    sc_upmw_postClass_link = "sc_upmw_link";
+    sc_upmw_postClass_post = "sc_upmw_post";
+    sc_upmw_displayStructure_class_header = "sc_upmw_postHeader";
+    sc_upmw_displayStructure_class_body = "sc_upmw_postBody";
+    sc_upmw_displayStructure_class_footer = "sc_upmw_postFooter";
+    sc_upmw_displayStructure_class_title = "sc_upmw_post_title";
+    sc_upmw_displayStructure_class_datePost = "sc_upmw_post_datePost";
+    sc_upmw_displayStructure_class_dateLink = "sc_upmw_post_dateLink";
+    sc_upmw_displayStructure_class_author = "sc_upmw_post_author";
+    sc_upmw_displayStructure_class_tags = "sc_upmw_post_tags";
+    sc_upmw_displayStructure_class_tagText = "sc_upmw_post_tagText";
+    sc_upmw_displayStructure_class_description = "sc_upmw_post_description";
+    sc_upmw_displayStructure_class_content = "sc_upmw_post_content";
+    sc_upmw_displayStructure_class_titleImage = "sc_upmw_post_titleImg";
+    sc_upmw_displayStructure_class_thumbImage = "sc_upmw_post_thumbImage";
+    sc_upmw_displayStructure_class_comments = "sc_upmw_post_comments";
+    sc_upmw_displayStructure_class_links = "sc_upmw_post_links";
+    sc_upmw_displayStructure_class_share = "sc_upmw_post_share";
+
+    // Display container settings
+    sc_upmw_displaySetting_startWLoad = true;   // If display containers show a 'loading' element before opening
+    sc_upmw_displaySetting_loadContent = `<div class="sc_upmw_loadingPlaceholder"></div>`;   // Uses this as the loading replacement element
+    sc_upmw_displaySetting_highlightOrder = "post";                   // Order of elements in a highlight element
+    sc_upmw_displaySetting_archiveOrder = "search;sort;post;nav";          // Order of elements in an archive element
+    sc_upmw_displaySetting_galleryOrder = "sort;tag;date;search;post;nav"; // Order of elements in a gallery element
+                                                                          // Exclude an element to remove it from the order
+                                                                          // "tag" = tag sorting
+                                                                          // "date" = date sorting
+                                                                          // "search" = search bar
+                                                                          // "post" = post links
+                                                                          // "nav" = 'next' and 'prev' buttons
+    sc_upmw_displaySetting_minDateText = "Earliest";    // Text that appears before the 'early' date limit
+    sc_upmw_displaySetting_maxDateText = "Latest";      // Text that appears before the 'latest' date limit
+    sc_upmw_displaySetting_searchText = "Search";       // Text that appears before the search bar
+    sc_upmw_displaySetting_searchPlaceholder = "Search..."; // Text inside the search bar before the user clicks it
+    sc_upmw_displaySetting_searchOptionCustom = true;     // If true, use a custom checkbox for CSS editing
+    sc_upmw_displaySetting_searchCategoryArray = [["title","Title"], ["author","Author"], ["desc","Description"], ["cont","Content"], ["titleImgAlt","Title Image ALT"], ["thumbImgAlt","Thumbnail Image ALT"], ["links","Additional Links"]];
+                                                          // The search options available, formatted: 
+                                                          // ["value", "name user views"]. Leave empty as [] to remove
+                                                          // search options from the display containers.
+                                                          // title = Title of the post
+                                                          // author = Name of the author
+                                                          // desc = Description in post links
+                                                          // cont = Text in the post
+                                                          // titleImgAlt / thumbImgAlt = ALT on main images
+                                                          // links = Links in the additional link section
+    sc_upmw_displaySetting_tagOrder = "auto";             // How tags are sorted in the display container
+                                                          // auto = based on the posts in the postList.txt
+                                                          // alphaAsc / alphaDesc = alphabetical
+    sc_upmw_displaySetting_sortText = "Sort by";          // Text that appears before the sort dropdown
+    sc_upmw_displaySetting_sortOrder = "auto";            // How posts are automatically sorted
+                                                          // auto = how you entered the posts in the postList.txt
+                                                          // chronoAsc / chronoDesc = chronological
+                                                          // alphaAsc / alphaDesc = alphabetical
+    sc_upmw_displaySetting_sortArray = [["auto", "Manual"], ["chronoAsc", "Newest"], ["chronoDesc", "Oldest"], ["alphaAsc", "Ascending Title"], ["alphaDesc", "Descending Title"]];
+                                                          // The sort orders available, can only use values listed next to
+                                                          // the sc_upmw_displaySetting_sortOrder variable
+                                                          // Formatted 2D array with ["value", "name user views"]
+    sc_upmw_displaySetting_nextButtonText = "Older";      // Text that appears on the 'back' button
+    sc_upmw_displaySetting_prevButtonText = "Newer";      // Text that appears on the 'next' button
+    sc_upmw_displaySetting_showPageNumbers = true;        // Show clickable page numbers between the nav buttons
+    sc_upmw_displaySetting_showPageNumbersCustom = false;  // Use the custom page numbers array instead of numbers
+    sc_upmw_displaySetting_showPageNumberAmount = 5;      // How many page numbers are shown at once, leave as 0 to show all
+                                                          // This will automatically raise the number to an odd number
+                                                          // e.g. 4 becomes 5
+                                                          // The page numbers on the left and right will also always
+                                                          // be half, i.e. if the current page is "1" and you have 5 page
+                                                          // numbers allowed, it will appear as: 0 [1] 2 3
+    sc_upmw_displaySetting_customPageNumbers = [
+      "A", "B", "C", "D", "E", "F", "G", "H", "I",
+      "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+      "S", "T", "U", "V", "W", "X", "Y", "Z"
+    ];                                                    // Custom page numbers instead of using 1-9, will loop
+                                                          //  the array if it reaches the end
+    sc_upmw_displaySetting_postShareText = "Share";       // Text that appears on the 'share' link
+    sc_upmw_displaySetting_totalPostsVisible = 5;         // How many posts are visible, set to 0 to show all
+    sc_upmw_displaySetting_defaultDisplayFormat = "link"; // How posts are displayed by default
+                                                          // link = Clickable summaries that open a larger post fullscreen
+                                                          // expand = Clickable summaries that open posts inline
+                                                          // full = Shows full posts inline
+	  
+    // Collect the post list and default post format text file
+    sc_upmw_Start();
+	</script>
+	
+  </body>
+</html>

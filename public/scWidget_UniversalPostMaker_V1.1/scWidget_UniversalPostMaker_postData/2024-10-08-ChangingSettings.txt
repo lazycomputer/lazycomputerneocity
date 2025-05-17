@@ -1,0 +1,261 @@
+<<TITLE: Changing Settings:>>
+<<AUTHOR: Scribblemakes:>>
+<<TAGS: Beginner:>>
+
+<<DESCRIPTION: A guide on how to change your post's settings and a full reference for each setting:>>
+
+<<CONTENT:
+	<p>This guide will go through changing settings on a default and local scale. It also includes a full reference for each setting's name and purpose.</p>
+  
+  <h3>Setting Default and Local File Locations</h3>
+  <p>The UPMW has two methods to change the settings: default and local:</p>
+  <ul>
+    <li><strong>Default</strong> settings are applied to every page you put your posts on and are changed inside the Javascript file. To do this, you can open the <code>scWidget_UniversalPostMaker_script.js</code> file and find the setting you're looking for, then change the value after the <code>=</code>.</li>
+    <li><strong>Local</strong> settings are changed inside your HTML files and only apply to that single HTML file. They override default settings. To do this, open the HTML file you want the setting to change on and add a line in the <code>&lt;script&gt;</code> section <i>above</i> the line: <code>sc_upmw_Start();</code>. Unlike the default settings, you'll need to add this line yourself and it won't include <code>let</code> at the start. For example: to change the timezone, you would write: <code>sc_upmw_timezone = 0;</code> (replacing the 0 with your timezone).</li>
+  </ul>
+  <p>When to set something as default or local depends on how often you'll need that specific setting. If a setting is shared by most of your website, like your timezone, then you only need to set it once as a default setting. If a setting is only used by one or a few pages of your website, like how a display container is formatted, then you should set it locally.</p>
+  
+  <hr>
+  
+  <h3>Setting Your Time</h3>
+  <p>Each post has a collection of date settings, including a timezone and default date:</p>
+  <ul>
+    <li><code>sc_upmw_timezone</code> - Accepts a number (default = 0). This number determines how many hours to add, or remove, from the UTC timezone to get the developer's timezone. This timezone is then used to write dates on posts. For example: <code>sc_upmw_timezone = 10;</code> sets the timezone to UTC+10 or AEST. To set an negative timezone, like UTC-10, you can write: <code>sc_upmw_timezone = -10;</code>.</li>
+    <li><code>sc_upmw_postTimeSetting_defaultYear</code> - Accepts a number (default = 2024). This number will be assigned as a year to any post without a set date.</li>
+    <li><code>sc_upmw_postTimeSetting_defaultMonth</code> - Accepts a number (default = 1). This number will be assigned as a month to any post without a set date.</li>
+    <li><code>sc_upmw_postTimeSetting_defaultDay</code> - Accepts a number (default = 1). This number will be assigned as a day to any post without a set date.</li>
+    <li><code>sc_upmw_postTimeSetting_defaultHour</code> - Accepts a number (default = 0). This number will be assigned as an hour to any post without a set date.</li>
+    <li><code>sc_upmw_postTimeSetting_defaultMinute</code> - Accepts a number (default = 0). This number will be assigned as a minute to any post without a set date.</li>
+    <li><code>sc_upmw_postTimeSetting_linkDateFormat</code> and <code>sc_upmw_postTimeSetting_postDateFormat</code></li>
+      <ul>
+        <li>These two variables set how dates are written on post links and full posts respectively. For example: If a post has the date 2024-01-01, these variables can convert it to <code>Posted on the 1st of January, 2024</code>. To set these variables, you can use codes along with normal text, for example: <code>Posted on MML DDTH</code> converts to "Posted on January 1st".</li>
+        <ul>
+          <li>Codes for date conversion:</li>
+          <li><code>YYYY</code> = Long year (2024 -> 2024)</li>
+          <li><code>YY</code> = Short year (2024 -> 24)</li>
+          <li><code>ML</code> = Long Month (January)</li>
+          <li><code>MMS</code> = Short Month (January -> Jan)</li>
+          <li><code>MMZ</code> = Month index with leading zero (January -> 01)</li>
+          <li><code>MM</code> = Month index (January -> 1)</li>
+          <li><code>DDN</code> = Day name (Monday)</li>
+          <li><code>DDTH</code> = Day index with suffix (Monday -> 1st)</li>
+          <li><code>DDS</code> = Day name short (Monday -> Mon)</li>
+          <li><code>DDZ</code> = Day index with leading zero (Monday -> 01)</li>
+          <li><code>DD</code> = Day index (Monday -> 1)</li>
+          <li><code>HHSZ</code> = Hour in 12hr time with leading zero (13 -> 01)</li>
+          <li><code>HHS</code> = Hour in 12hr time (0 -> 12)</li>
+          <li><code>HHZ</code> = Hour in 24hr time with leading zero (1 -> 01)</li>
+          <li><code>HH</code> = Hour in 24hr time (1)</li>
+          <li><code>MINZ</code> = Minutes with leading zero (1 -> 01)</li>
+          <li><code>MIN</code> = Minutes (1)</li>
+          <li><code>XM</code> = Time of day (AM / PM)</li>
+        </ul>
+      </ul>
+  </ul>
+  
+  <hr>
+  
+  <h3>Default Post Information</h3>
+  <p>Posts display information they're given in their text files, but if they do not have certain information then they'll draw from the default settings. For example: If a post doesn't have any tag option included but the <code>sc_upmw_postDefaultProperty_tagList</code> setting does, the post will use the default tags. If a default setting should be empty then leave it as <code>""</code> or <code>[""]</code> if it's an array.</p>
+  <ul>
+    <li><code>sc_upmw_postAutoFinder_imageLookup</code> - Accepts true / false (default = true). This variable sets if the script automatically looks for title and thumbnail images. If set to true, the script will automatically search for images.</li>
+    <li><code>sc_upmw_postAutoFinder_titleImgSuffix</code> - Accepts a string (default = "_title.png"). If <code>sc_upmw_postAutoFinder_imageLookup</code> is true, this variable will be used to search for title images starting with the file name and ending with this variable. For example: For a post named 'filename.txt', using the setting default, it will find a title image named 'filename_title.png'.</li>
+    <li><code>sc_upmw_postAutoFinder_thumbImgSuffix</code> - Accepts a string (default = "_thumbnail.png"). If <code>sc_upmw_postAutoFinder_imageLookup</code> is true, this variable will be used to search for thumbnail images starting with the file name and ending with this variable. For example: For a post named 'filename.txt', using the setting default, it will find a thumbnail image named 'filename_thumbnail.png'.</li>
+    <li><code>sc_upmw_postDefaultActive</code> - Accepts true / false (default = true). This variable sets if posts will use default settings or ignore them. If this variable is true, posts will use default settings if no other information is provided.</li>
+    <li><code>sc_upmw_postDefaultProperty_title</code> - Accepts a string (default = "Post Name Not Found"). This variable is the default title of a post.</li>
+    <li><code>sc_upmw_postDefaultProperty_datePostText</code> - Accepts a string (default = "Posted DDTH of MML, YYYY"). This variable is the default date formatting of a post. This variable works the same as the <code>sc_upmw_postTimeSetting_linkDateFormat</code> and <code>sc_upmw_postTimeSetting_postDateFormat</code> settings.</li>
+    <li><code>sc_upmw_postDefaultProperty_dateLinkText</code> - Accepts a string (default = "YYYY/MMZ/DDZ"). This variable is the default date formatting of a post link. This variable works the same as the <code>sc_upmw_postTimeSetting_linkDateFormat</code> and <code>sc_upmw_postTimeSetting_postDateFormat</code> settings.</li>
+    <li><code>sc_upmw_postDefaultProperty_author</code> - Accepts a string (default = window.location.href.split("//")[1].split(".")[0] (NOTE: This is javascript that turns into a string)). This variable is the default author of a post.</li>
+    <li><code>sc_upmw_postDefaultProperty_tagList</code> - Accepts an array of strings (default = ["post", "defaultPost"]). This variable holds the default tags of a post.</li>
+    <li><code>sc_upmw_postDefaultProperty_desc</code> - Accepts a string (default = "Post Summary"). This variable is the default description of a post.</li>
+    <li><code>sc_upmw_postDefaultProperty_cont</code> - Accepts a HTML string (default = "&lt;p&gt;This is where the content of your post will go&lt;/p&gt;"). This variable is the default content of a post.</li>
+    <li><code>sc_upmw_postDefaultProperty_titleImg</code> - Accepts a URL string (default = "scWidget_UniversalPostMaker_postData/default_title.png"). This variable is the default title image URL of a post.</li>
+    <li><code>sc_upmw_postDefaultProperty_titleImgAlt</code> - Accepts a string (default = "Image Alt entered here"). This variable is the default image description for title images.</li>
+    <li><code>sc_upmw_postDefaultProperty_thumbImg</code> - Accepts a URL string (default = "scWidget_UniversalPostMaker_postData/default_thumbnail.png"). This variable is the default thumbnail image URL of a post.</li>
+    <li><code>sc_upmw_postDefaultProperty_thumbImgAlt</code> - Accepts a string (default = "Thumbnail Alt entered here"). This variable is the default image description for thumbnail images.</li>
+    <li><code>sc_upmw_postDefaultProperty_links</code> - Accepts a HTML string (default = "&lt;a href='https://neocities.org'&gt;Neocities&lt;/a&gt;"). This variable is the default HTML shown in the links section of a post.</li>
+    <li><code>sc_upmw_postDefaultProperty_comment</code> - Accepts a HTML string (default = "&lt;p&gt;This is where a comment widget can go&lt;/p&gt;"). This variable is the default HTML shown in the comments section of a post.</li>
+    <li><code>sc_upmw_postDefaultProperty_classAdd</code> - Accepts an array of strings (default = [""]). This variable holds a collection of class names which are added to a post by default.</li>
+    <li><code>sc_upmw_postDefaultProperty_redirect</code> - Accepts a URL string (default = ""). This variable is the default redirect link of a post.</li>
+  </ul>
+  
+  <hr>
+  
+  <h3>Post Link and Full Post Structures</h3>
+  <p>How post links and full posts are structured depend on what type of display container they're in and how these variables are set. Each variable has a string which includes post elements, the string's order then sorts the elements into the same order when displaying posts.</p>
+  <ul>
+    <li>The list of elements is:</li>
+      <ul>
+        <li><code>title</code> = Title of the post</li>
+        <li><code>datePost</code> = Date of the post as written in the full post</li>
+        <li><code>dateLink</code> = Date of the post as written in a post link</li>
+        <li><code>author</code> = Author of the post</li>
+        <li><code>tags</code> = Tags for the post</li>
+        <li><code>description</code> = Description of the post</li>
+        <li><code>content</code> = Content of the post</li>
+        <li><code>titleImg</code> = Title image of the post</li>
+        <li><code>thumbImg</code> = Thumbnail of the post</li>
+        <li><code>comments</code> = Comments for the post</li>
+        <li><code>links</code> = Links for the post</li>
+        <li><code>share</code> = Share link for the post</li>
+        <li>To order these elements, put them in a string separated by a <kbd>;</kbd>. For example: To set an order of 1. Title, 2. Date Link, 3. Author you would write <code>"title;dateLink;author"</code></li>
+      </ul>
+    <li><code>sc_upmw_displayStructure_allLink</code> - Accepts a string (default = "thumbImg;title;dateLink;author;tags;description"). This variable takes a collection of element names in a string, which is then given to every post link by default.</li>
+    <li><code>sc_upmw_displayStructure_allPostHeader</code> - Accepts a string (default = "title;datePost;author;tags;titleImg"). This variable takes a collection of element names in a string, which is then given to every post header by default.</li>
+    <li><code>sc_upmw_displayStructure_allPostBody</code> - Accepts a string (default = "content;comments"). This variable takes a collection of element names in a string, which is then given to every post body by default.</li>
+    <li><code>sc_upmw_displayStructure_allPostFooter</code> - Accepts a string (default = "links;share"). This variable takes a collection of element names in a string, which is then given to every post footer by default.</li>
+    <li><code>sc_upmw_displayStructure_archiveLink</code> - Accepts a string (default = "title;dateLink;description"). This variable takes a collection of element names in a string, which is then given to every post link inside an 'archive' display.</li>
+    <li><code>sc_upmw_displayStructure_galleryLink</code> - Accepts a string (default = "thumbImg;title;tags"). This variable takes a collection of element names in a string, which is then given to every post link inside a 'gallery' display.</li>
+    <li><code>sc_upmw_displayStructure_highlightLink</code> - Accepts a string (default = "thumbImg;title"). This variable takes a collection of element names in a string, which is then given to every post link inside a 'highlight' display.</li>
+  </ul>
+  
+  <hr>
+  
+  <h3>Post Display Settings</h3>
+  <p>Post display settings impact how the post itself is displayed and how some of its data is interpreted. For example: Posts with dates in the future can be hidden from this list of variables.</p>
+  <ul>
+    <li><code>sc_upmw_postDisplaySetting_titleSplitType</code></li> - Accepts a string (default = "camelCase"). This variable sets how file names are interpreted to get the post's title. It takes one of 3 strings:</li>
+      <ul>
+        <li><code>"camelCase"</code> = Splits a file name by its capitalisation. For example: the file name "titlePostName" will set the title to "title post name".</li>
+        <li><code>"underscore"</code> = Splits a file name by underscores. For example: the file name "title_post_name" will set the title to "title post name".</li>
+        <li><code>"none"</code> = Does not split the file name. For example: the file name "titlePostName" will set the title to "titlePostName".</li>
+      </ul>
+    <li><code>sc_upmw_postDisplaySetting_scheduling</code> - Accepts true / false (default = true). This variable determines if posts set in the future are displayed normally or not. If true, posts set in the future will be given a 'scheduled' class and will be hidden if <code>sc_upmw_postDisplaySetting_scheduledHidden</code> is true.</li>
+    <li><code>sc_upmw_postDisplaySetting_scheduledHidden</code> - Accepts true / false (default = true). This variable determines if posts set in the future are visible or hidden. If this and <code>sc_upmw_postDisplaySetting_scheduling</code> are set to true, posts set in the future will be hidden.</li>
+    <li><code>sc_upmw_postDisplaySetting_postFullscreenID</code> - Accepts a string (default = "sc_upmw_postFullscreen"). This variable is turned into an ID which is given to the fullscreen post viewer.</li>
+    <li><code>sc_upmw_postDisplaySetting_postFullscreen_redirectClass</code> - Accepts a string (default = "sc_upmw_postFullScreen_redirect"). This variable is turned into a class which is given to posts that have a redirect link.</li>
+    <li><code>sc_upmw_postDisplaySetting_postFullscreen_scheduledClass</code> - Accepts a string (default = "sc_upmw_postFullScreen_scheduled"). This variable is turned into a class which is given to posts that have a future date, if <code>sc_upmw_postDisplaySetting_scheduling</code> is true.</li>
+    <li><code>sc_upmw_postDisplaySetting_postFullscreen_closeButtonText</code> - Accepts a string (default = "X"). This variable is given to the close button on the fullscreen post viewer to use as the text on it.</li>
+    <li><code>sc_upmw_postDisplaySetting_postFullscreen_prevButtonText</code> - Accepts a string (default = "<"). This variable is given to the previous button on the fullscreen post viewer to use as the text on it.</li>
+    <li><code>sc_upmw_postDisplaySetting_postFullscreen_nextButtonText</code> - Accepts a string (default = ">"). This variable is given to the next button on the fullscreen post viewer to use as the text on it.</li>
+  </ul>
+  
+  <hr>
+  
+  <h3>Display Container Settings</h3>
+  <p>The appearance of display containers and their function can be altered with the settings below. These changes range from the order they display elements, similar to the post elements, and how they show a loading state:</p>
+  <ul>
+    <li><code>sc_upmw_displaySetting_startWLoad</code> - Accepts true / false (default = true). If this variable is true, the display containers will have a 'loading' element while posts are being fetched.</li>
+    <li><code>sc_upmw_displaySetting_loadContent</code> - Accepts a HTML string (default = `&lt;div class="sc_upmw_loadingPlaceholder"&gt;&lt;/div&gt;`). If <code>sc_upmw_displaySetting_startWLoad</code> is true, this variable will be used to create the loading element for every display container.</li>
+    <li>The list of elements for the following display structures is:</li>
+      <ul>
+        <li><code>sort</code> = Alphabetical and chronological sorting</li>
+        <li><code>tag</code> = Tag filters</li>
+        <li><code>date</code> = Date filters</li>
+        <li><code>search</code> = Search filters</li>
+        <li><code>post</code> = Posts available for this display container</li>
+        <li><code>nav</code> = 'Next' and 'Previous' buttons</li>
+        <li>To order these elements, put them in a string separated by a <kbd>;</kbd>. For example: To set an order of 1. Tags, 2. Date, 3. Search, 4. Posts you would write <code>"tag;date;search;post"</code></li>
+      </ul>
+    <li><code>sc_upmw_displaySetting_archiveOrder</code> - Accepts a string (default = "search;sort;post;nav"). This variable takes a collection of element names in a string, which is then given to every archive display container.</li>
+    <li><code>sc_upmw_displaySetting_highlightOrder</code> - Accepts a string (default = "post"). This variable takes a collection of element names in a string, which is then given to every highlight display container.</li>
+    <li><code>sc_upmw_displaySetting_galleryOrder</code> - Accepts a string (default = "sort;tag;date;search;post;nav"). This variable takes a collection of element names in a string, which is then given to every gallery display container.</li>
+    <li><code>sc_upmw_displaySetting_minDateText</code> - Accepts a string (default = "Earliest"). This variable is given to the date filter element and used as the label text for the 'oldest' date filter.</li>
+    <li><code>sc_upmw_displaySetting_maxDateText</code> - Accepts a string (default = "Latest"). This variable is given to the date filter element and used as the label text for the 'newest' date filter.</li>
+    <li><code>sc_upmw_displaySetting_searchText</code> - Accepts a string (default = "Search"). This variable is given to the search filter element and used as the label text for the search bar.</li>
+    <li><code>sc_upmw_displaySetting_searchPlaceholder</code> - Accepts a string (default = "Search..."). This variable is given to the search filter element and used as the placeholder text for the search bar.</li>
+    <li><code>sc_upmw_displaySetting_searchOptionCustom</code> - Accepts true / false (default = true). This variable is given to the search filter element and, if true, sets the checkboxes to be CSS editable.</li>
+    <li><code>sc_upmw_displaySetting_searchCategoryArray</code> - Accepts an array of arrays of strings (default = [["title","Title"], ["author","Author"], ["desc","Description"], ["cont","Content"], ["titleImgAlt","Title Image ALT"], ["thumbImgAlt","Thumbnail Image ALT"], ["links","Additional Links"]]). This variable gives the search element a list of aspects to search by, giving it the value and the name displayed for the user.</li>
+    <li><code>sc_upmw_displaySetting_tagOrder</code> - Accepts a string (default = "auto"). This variable determines how tags are sorted in the tag filter element. There are three available options:</li>
+      <ul>
+        <li><code>"auto"</code> = Tags are sorted by the order they appear in posts</li>
+        <li><code>"alphaAsc"</code> = Tags are sorted by ascending alphabetical order</li>
+        <li><code>"alphaDesc"</code> = Tags are sorted by descending alphabetical order</li>
+      </ul>
+    <li><code>sc_upmw_displaySetting_sortText</code> - Accepts a string (default = "Sort by"). This variable is given to the sorting element and used as the label text for the sort order dropdown.</li>
+    <li><code>sc_upmw_displaySetting_sortOrder</code> - Accepts a string (default = "auto"). This variable determines how posts are automatically sorted. There are five available options:</li>
+      <ul>
+        <li><code>"auto"</code> = Posts are sorted by the order they appear in the post list text file</li>
+        <li><code>"alphaAsc"</code> = Posts are sorted by their title in ascending alphabetical order</li>
+        <li><code>"alphaDesc"</code> = Posts are sorted by their title in descending alphabetical order</li>
+        <li><code>"chronoAsc"</code> = Posts are sorted by their date in ascending chronological order</li>
+        <li><code>"chronoDesc"</code> = Posts are sorted by their date in descending chronological order</li>
+      </ul>
+    <li><code>sc_upmw_displaySetting_sortArray</code> - Accepts an array of arrays of strings (default = [["auto", "Manual"], ["chronoAsc", "Newest"], ["chronoDesc", "Oldest"], ["alphaAsc", "Ascending Title"], ["alphaDesc", "Descending Title"]]). This variable gives the sort element a list of orders to sort by, giving it the value and the name displayed for the user.</li>
+    <li><code>sc_upmw_displaySetting_nextButtonText</code> - Accepts a string (default = "Older"). This variable is given to the next button, in the nav element, to use as the text on it.</li>
+    <li><code>sc_upmw_displaySetting_prevButtonText</code> - Accepts a string (default = "Newer"). This variable is given to the previous button, in the nav element, to use as the text on it.</li>
+    <li><code>sc_upmw_displaySetting_showPageNumbers</code> - Accepts true / false (default = true). If this variable is true, clickable page numbers are displayed between the next and previous buttons.</li>
+    <li><code>sc_upmw_displaySetting_showPageNumbersCustom</code> - Accepts true / false (default = false). If this variable is true, the page numbers use the variable <code>sc_upmw_displaySetting_customPageNumbers</code> rather than numbers.</li>
+    <li><code>sc_upmw_displaySetting_showPageNumberAmount</code> - Accepts a number (default = 5). This variable is given to the nav element, which sets how many page numbers are visible at any time. This number will automatically increase to an odd number if above 1. Set it to 0 to show all page numbers.</li>
+    <li><code>sc_upmw_displaySetting_customPageNumbers</code> - Accepts an array of strings (default = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]). If <code>sc_upmw_displaySetting_showPageNumbersCustom</code> is true, this variable is used to display the page numbers instead of normal numbers.</li>
+    <li><code>sc_upmw_displaySetting_postShareText</code> - Accepts a string (default = "Share"). This variable is given to the share link, which sets what text is shown on the share link.</li>
+    <li><code>sc_upmw_displaySetting_totalPostsVisible</code> - Accepts a number (default = 5). This variable determines how many posts are visible inside display containers by default.</li>
+    <li><code>sc_upmw_displaySetting_defaultDisplayFormat</code> - Accepts a string (default = "link"). This variable determines how posts appear in display containers by default. It accepts three types of strings:</li>
+      <ul>
+        <li><code>"link"</code> = Uses post links, which can be clicked to open the full post</li>
+        <li><code>"expand"</code> = Posts are shown as expanding buttons, which can be clicked on to shrink or expand the post</li>
+        <li><code>"full"</code> = Posts are shown in full inside the display container</li>
+      </ul>
+  </ul>
+  
+  <hr>
+  
+  <h3>Using Utility Classes</h3>
+  <p>There are several HTML classes that the Javascript file looks for on <code>&lt;div&gt;</code> elements. When it finds those classes, it changes the appearance, post list, and type of display container the element will turn into. As the developer, you can change what class names it looks for:</p>
+  <ul>
+    <li><code>sc_upmw_containerClass_archive</code> - Accepts a string (default = 'sc_upmw_classArchive'). If an element, ideally a <code>&lt;div&gt;</code>, has this class then the script will replace the element with an 'archive' display.</li>
+    <li><code>sc_upmw_containerClass_gallery</code> - Accepts a string (default = 'sc_upmw_classGallery'). If an element, ideally a <code>&lt;div&gt;</code>, has this class then the script will replace the element with a 'gallery' display.</li>
+    <li><code>sc_upmw_containerClass_highlight</code> - Accepts a string (default = 'sc_upmw_classHighlight'). If an element, ideally a <code>&lt;div&gt;</code>, has this class then the script will replace the element with a 'highlight' display.</li>
+    <li><code>sc_upmw_containerClass_tagIncluder</code> - Accepts a string (default = 'sc_upmw_tagInc:'). This is the start of a class name that the script searches for. If the script finds it, it grabs the tags written after it and will only show posts with those tags. For example, using the default: <code>sc_upmw_tagInc:tag1;tag2;tag3</code> will include posts with 'tag1', 'tag2', and 'tag3'.</li>
+    <li><code>sc_upmw_containerClass_tagExcluder</code> - Accepts a string (default = 'sc_upmw_tagExc:'). This is the start of a class name that the script searches for. If the script finds it, it grabs the tags written after it and will only show posts without those tags. For example, using the default: <code>sc_upmw_tagInc:tag1;tag2;tag3</code> will exclude posts with 'tag1', 'tag2', and 'tag3'.</li>
+    <li><code>sc_upmw_containerClass_postsPerPage</code> - Accepts a string (default = 'sc_upmw_perPage:'). This is the start of a class name that the script searches for. If the script finds it, it grabs the number written after it and limits the posts visible to that number. For example, using the default: <code>sc_upmw_perPage:5</code> will show 5 posts per page.</li>
+    <li><code>sc_upmw_containerClass_postDisplayFormat</code> - Accepts a string (default = 'sc_upmw_displayFormat:'). This is the start of a class name that the script searches for. If the script finds it, it grabs the text written after it to determine how posts are displayed. The text written after it can be: 'link' (clicking on the post opens it fullscreen), 'expand' (clicking on the post opens it fully inside the display), or 'full' (displays the post in full automatically). For example, using the default: <code>sc_upmw_displayFormat:link</code> will make posts into links that open fullscreen when clicked.</li>
+  </ul>
+  
+  <hr>
+  
+  <h3>Changing CSS and HTML Classes</h3>
+  <p>There are several variables that apply a class to each of the elements, which can then be accessed through CSS and other scripts. If you would prefer to change the class names, you can use the following variables:</p>
+  <ul>
+    <li><code>sc_upmw_postClass_link</code> - Accepts a string (default = "sc_upmw_link"). This variable turns the string into a class name, and then gives that class to every post link.</li>
+    <li><code>sc_upmw_postClass_post</code> - Accepts a string (default = "sc_upmw_post"). This variable turns the string into a class name, and then gives that class to every full post.</li>
+    <li><code>sc_upmw_displayStructure_class_header</code> - Accepts a string (default = "sc_upmw_postHeader"). This variable turns the string into a class name, and then gives that class to every post header.</li>
+    <li><code>sc_upmw_displayStructure_class_body</code> - Accepts a string (default = "sc_upmw_postBody"). This variable turns the string into a class name, and then gives that class to every post body.</li>
+    <li><code>sc_upmw_displayStructure_class_footer</code> - Accepts a string (default = "sc_upmw_postFooter"). This variable turns the string into a class name, and then gives that class to every post footer.</li>
+    <li><code>sc_upmw_displayStructure_class_title</code> - Accepts a string (default = "sc_upmw_post_title"). This variable turns the string into a class name, and then gives that class to every post title.</li>
+    <li><code>sc_upmw_displayStructure_class_datePost</code> - Accepts a string (default = "sc_upmw_post_datePost"). This variable turns the string into a class name, and then gives that class to every full post date.</li>
+    <li><code>sc_upmw_displayStructure_class_dateLink</code> - Accepts a string (default = "sc_upmw_post_dateLink"). This variable turns the string into a class name, and then gives that class to every post link date.</li>
+    <li><code>sc_upmw_displayStructure_class_author</code> - Accepts a string (default = "sc_upmw_post_author"). This variable turns the string into a class name, and then gives that class to every post author.</li>
+    <li><code>sc_upmw_displayStructure_class_tags</code> - Accepts a string (default = "sc_upmw_post_tags"). This variable turns the string into a class name, and then gives that class to every post tag list.</li>
+    <li><code>sc_upmw_displayStructure_class_tagText</code> - Accepts a string (default = "sc_upmw_post_tagText"). This variable turns the string into a class name, and then gives that class to every post tag list.</li>
+    <li><code>sc_upmw_displayStructure_class_description</code> - Accepts a string (default = "sc_upmw_post_description"). This variable turns the string into a class name, and then gives that class to every post description.</li>
+    <li><code>sc_upmw_displayStructure_class_content</code> - Accepts a string (default = "sc_upmw_post_content"). This variable turns the string into a class name, and then gives that class to every post content section.</li>
+    <li><code>sc_upmw_displayStructure_class_titleImage</code> - Accepts a string (default = "sc_upmw_post_titleImg"). This variable turns the string into a class name, and then gives that class to every post title image.</li>
+    <li><code>sc_upmw_displayStructure_class_thumbImage</code> - Accepts a string (default = "sc_upmw_post_thumbImage"). This variable turns the string into a class name, and then gives that class to every post thumbnail image.</li>
+    <li><code>sc_upmw_displayStructure_class_comments</code> - Accepts a string (default = "sc_upmw_post_comments"). This variable turns the string into a class name, and then gives that class to every post comment section.</li>
+    <li><code>sc_upmw_displayStructure_class_links</code> - Accepts a string (default = "sc_upmw_post_links"). This variable turns the string into a class name, and then gives that class to every post link section.</li>
+    <li><code>sc_upmw_displayStructure_class_share</code> - Accepts a string (default = "sc_upmw_post_share"). This variable turns the string into a class name, and then gives that class to every post share link.</li>
+    <li><code>sc_upmw_containerClass_fullPostMarker</code> - Accepts a string (default = 'sc_upmw_displayFormat_full'). This variable turns the string into a class name, and then gives that class to the full-screen post viewer.</li>
+    <li><code>sc_upmw_containerClass_postContainer</code> - Accepts a string (default = 'sc_upmw_postContainer'). This variable turns the string into a class name, and then gives that class to 'post' sections inside displays.</li>
+    <li><code>sc_upmw_containerClass_postEmptyContainer</code> - Accepts a string (default = 'sc_upmw_postEmptyContainer'). This variable turns the string into a class name, and then gives that class to 'post' sections inside displays that don't have any posts.</li>
+    <li><code>sc_upmw_containerClass_searchContainer</code> - Accepts a string (default = 'sc_upmw_searchContainer'). This variable turns the string into a class name, and then gives that class to 'search' sections inside displays.</li>
+    <li><code>sc_upmw_containerClass_searchEmptyContainer</code> - Accepts a string (default = 'sc_upmw_searchEmptyContainer'). This variable turns the string into a class name, and then gives that class to 'search' sections inside displays that don't have any posts.</li>
+    <li><code>sc_upmw_containerClass_searchOptionContainer</code> - Accepts a string (default = 'sc_upmw_searchOptionContainer'). This variable turns the string into a class name, and then gives that class to the 'search' section's checkbox option container.</li>
+    <li><code>sc_upmw_containerClass_searchOptionCustom</code> - Accepts a string (default = 'sc_upmw_searchOptionCustom'). This variable turns the string into a class name, and then gives that class to the 'search' section's checkboxs.</li>
+    <li><code>sc_upmw_containerClass_sortContainer</code> - Accepts a string (default = 'sc_upmw_sortContainer'). This variable turns the string into a class name, and then gives that class to 'sort' sections inside displays.</li>
+    <li><code>sc_upmw_containerClass_sortEmptyContainer</code> - Accepts a string (default = 'sc_upmw_sortEmptyContainer'). This variable turns the string into a class name, and then gives that class to 'sort' sections inside displays that don't have any posts.</li>
+    <li><code>sc_upmw_containerClass_tagContainer</code> - Accepts a string (default = 'sc_upmw_tagContainer'). This variable turns the string into a class name, and then gives that class to 'tag' sections inside displays.</li>
+    <li><code>sc_upmw_containerClass_tagEmptyContainer</code> - Accepts a string (default = 'sc_upmw_tagEmptyContainer'). This variable turns the string into a class name, and then gives that class to 'tag' sections inside displays that don't have any posts.</li>
+    <li><code>sc_upmw_containerClass_tagButtonIncluded</code> - Accepts a string (default = 'sc_upmw_tagButton_included'). This variable turns the string into a class name, which is given to tag buttons that are included in a search.</li>
+    <li><code>sc_upmw_containerClass_tagButtonExcluded</code> - Accepts a string (default = 'sc_upmw_tagButton_excluded'). This variable turns the string into a class name, which is given to tag buttons that are excluded in a search.</li>
+    <li><code>sc_upmw_containerClass_dateContainer</code> - Accepts a string (default = 'sc_upmw_dateContainer'). This variable turns the string into a class name, and then gives that class to 'date' sections inside displays.</li>
+    <li><code>sc_upmw_containerClass_dateEmptyContainer</code> - Accepts a string (default = 'sc_upmw_dateEmptyContainer'). This variable turns the string into a class name, and then gives that class to 'date' sections inside displays that don't have any posts.</li>
+    <li><code>sc_upmw_containerClass_navContainer</code> - Accepts a string (default = 'sc_upmw_navContainer'). This variable turns the string into a class name, and then gives that class to 'nav' sections inside displays.</li>
+    <li><code>sc_upmw_containerClass_navEmptyContainer</code> - Accepts a string (default = 'sc_upmw_navEmptyContainer'). This variable turns the string into a class name, and then gives that class to 'nav' sections inside displays that don't have any posts.</li>
+    <li><code>sc_upmw_containerClass_navPageNumber</code> - Accepts a string (default = 'sc_upmw_navPageNumber'). This variable turns the string into a class name, and then gives that class to any page numbers/symbols in the 'nav' section.</li>
+    <li><code>sc_upmw_containerClass_navCurrentPage</code> - Accepts a string (default = 'sc_upmw_navCurrentPage'). This variable turns the string into a class name, and then gives that class to the page number/symbol in the 'nav' section that's currently displayed.</li>
+  </ul>
+:>>
+
+<<TITLEIMGALT: An image with the title of the post:>>
+<<THUMBIMGALT: An image thumbnail with 'Changing Settings' written on it:>>
+
+<<COMMENTS::>>
+<<LINKS: <a href="https://scribblemakes.com/code">Return to Code Page</a> :>>
+
+
+
+
+
+
+

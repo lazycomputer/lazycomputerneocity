@@ -1,0 +1,826 @@
+/* 	-------------------------------------------------------------------------------------------------------------- 
+	
+	◤   ◥	SCRIBBLEMAKES - UNIVERSAL POST MAKER V1.0
+	 SM/C	----------------------------------------
+	◣   ◢	Last updated: 28th October 2024
+	
+	More widgets, plugins, and themes at: https://scribblemakes.com/code
+	
+	--------------------------------------------------------------------------------------------------------------
+
+	This is the 2000's Chunk stylesheet for the Universal Post Maker Widget (UPMW)
+	
+	You can read more about the widget at: https://scribblemakes.com/code#2024-09-30-scWidget_UniversalPostMaker
+	
+	-------------------------------------------------------------------------------------------------------------- */
+
+:root {
+	/* Cursor settings */
+	--cursorDefault: default;
+	--cursorPointer: pointer;
+	
+	/* Images */
+	--imageBackground: url("bgImage.png");
+	
+	/* Backgrounds */
+	--BGPostContainer: black var(--imageBackground) repeat top left;
+	
+  /* Colour settings */
+	--colorBorderMain: #acacac;
+	--colorBorderLight: #d9d9d9;
+	--colorBorderDark: #8e8c8c;
+	--colorBorderText: black;
+	
+	--colorAccent: #0831d2;
+	--colorAccentLight: #819bff;
+	--colorAccentText: White;
+	
+	--colorDisplaySectionBG: white;
+	--colorDisplaySectionText: Black;
+	
+	--colorInputBackground: white;
+	--colorInputText: black;
+	
+	--colorPostContainerText: black;
+	
+	--colorPostBorderMain: #acacac;
+	--colorPostBorderLight: #d9d9d9;
+	--colorPostBorderDark: #8e8c8c;
+	--colorPostBorderText: black;
+	--colorPostBackground: white;
+	--colorPostText: black;
+	
+	/* Text settings */
+	--fontSize: 1em;
+	--fontFamily: "Trebuchet MS", sans-serif;
+	
+	/* Loading content settings */
+	--textLoadingContent: "Loading";
+	--textLoadingContent_archive: "Archive currently loading";
+	--textLoadingContent_gallery: "Gallery currently loading";
+	--textLoadingContent_highlight: "Highlight currently loading";
+  
+  /* Sorting container and elements */
+  --sortContainer_emptyText: "";
+  
+  /* Tag container and elements */
+	--tagContainer_text: "Tags";
+  --tagContainer_emptyText: "";
+    --tagButton_includedBgColor: #abffab;
+    --tagButton_includedTextColor: #035903;
+    --tagButton_excludedBgColor: #3e1515;
+    --tagButton_excludedTextColor: #ffd1d1;
+  
+  /* Date container and elements */
+  --dateContainer_emptyText: "";
+  
+  /* Search container and elements */
+  --searchContainer_emptyText: "";
+	--searchContainer_searchInText: "Search for results in:";
+  
+  /* Post container and elements */
+  --postContainer_emptyText: "No Posts Found";
+  
+  /* Post links and full posts */
+  --postLink_fullscreenText: "⛶";
+  --postLink_disabledText: "Post Not Released Yet";
+  --postLink_expandText: "˅";
+  --postLink_shrinkText: "˄";
+  --postLink_redirectText: "⇒";
+  
+  /* Post Viewer and fullscreen posts */
+  --postViewer_redirectText: "[Open Link] ";
+  --postViewer_scheduledText: "[Not Available Yet] ";
+  --postViewer_redirectDateText: "This link became available on: ";
+  --postViewer_scheduledDateText: "This post becomes available on: ";
+	--postViewer_authorBefore: "Post by ";
+	--postViewer_tagBefore: "Tags: ";
+  
+  /* Navigation container and elements */
+  --navContainer_emptyText: "";
+}
+
+
+/* ----------------------------------------------- All Displays ----------------------------------------------- */
+.sc_upmw_classArchive, .sc_upmw_classGallery, .sc_upmw_classHighlight, #sc_upmw_postFullscreen {
+	overflow: hidden;
+	display: grid;
+	grid-template: auto auto auto auto auto auto / min(calc(25% - 4px), 15em) max(calc(75% - 4px), calc(100% - 15em));
+	column-gap: 8px;
+	box-sizing: border-box;
+	word-break: break-word;
+	margin: 0.5em auto;
+	border: 3px solid var(--colorBorderMain);
+	border-color: var(--colorBorderLight) var(--colorBorderDark) var(--colorBorderDark) var(--colorBorderLight);
+	padding: 10px;
+	width: 100%;
+	background-color: var(--colorBorderMain);
+	color: var(--colorBorderText);
+	font-family: var(--fontFamily);
+	font-size: var(--fontSize);
+}	
+	.sc_upmw_classArchive *, .sc_upmw_classGallery *, .sc_upmw_classHighlight *, #sc_upmw_postFullscreen * {
+		box-sizing: border-box;
+		word-break: break-word;
+		font-family: var(--fontFamily);
+	}
+	.sc_upmw_classArchive a, .sc_upmw_classGallery a, .sc_upmw_classHighlight a, #sc_upmw_postFullscreen a {
+		color: var(--colorAccent);
+	}
+	.sc_upmw_classArchive a:hover, .sc_upmw_classGallery a:hover, .sc_upmw_classHighlight a:hover, #sc_upmw_postFullscreen a:hover,
+  .sc_upmw_classArchive a:focus, .sc_upmw_classGallery a:focus, .sc_upmw_classHighlight a:focus, #sc_upmw_postFullscreen a:focus {
+		color: var(--colorAccentLight);
+	}
+	.sc_upmw_classArchive a:hover, .sc_upmw_classGallery a:hover, .sc_upmw_classHighlight a:hover, #sc_upmw_postFullscreen a:hover,
+  .sc_upmw_classArchive a:focus, .sc_upmw_classGallery a:focus, .sc_upmw_classHighlight a:focus, #sc_upmw_postFullscreen a:focus{
+		color: var(--colorAccentLight);
+	}
+	.sc_upmw_classArchive button:hover, .sc_upmw_classGallery button:hover, .sc_upmw_classHighlight button:hover, #sc_upmw_postFullscreen button:hover,
+  .sc_upmw_classArchive button:focus, .sc_upmw_classGallery button:focus, .sc_upmw_classHighlight button:focus, #sc_upmw_postFullscreen button:focus,
+	.sc_upmw_classArchive select:hover, .sc_upmw_classGallery select:hover, .sc_upmw_classHighlight select:hover, #sc_upmw_postFullscreen select:hover,
+  .sc_upmw_classArchive select:focus, .sc_upmw_classGallery select:focus, .sc_upmw_classHighlight select:focus, #sc_upmw_postFullscreen select:focus{
+		border-color: var(--colorBorderDark) var(--colorBorderLight) var(--colorBorderLight) var(--colorBorderDark);
+	}
+
+  /* HTML elements within all displays */
+	#sc_upmw_postFullscreen button, .sc_upmw_classArchive button, .sc_upmw_classGallery button, .sc_upmw_classHighlight button,
+	#sc_upmw_postFullscreen input[type=checkbox], .sc_upmw_classArchive input[type=checkbox], .sc_upmw_classGallery input[type=checkbox], .sc_upmw_classHighlight input[type=checkbox],
+	#sc_upmw_postFullscreen input[type=date], .sc_upmw_classArchive input[type=date], .sc_upmw_classGallery input[type=date], .sc_upmw_classHighlight input[type=date],
+	#sc_upmw_postFullscreen select, .sc_upmw_classArchive select, .sc_upmw_classGallery select, .sc_upmw_classHighlight select,
+	#sc_upmw_postFullscreen label, .sc_upmw_classArchive label, .sc_upmw_classGallery label, .sc_upmw_classHighlight label {
+		cursor: var(--cursorPointer);
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+    #sc_upmw_postFullscreen input, .sc_upmw_classArchive input, .sc_upmw_classGallery input, .sc_upmw_classHighlight input {
+			border: 2px solid var(--colorBorderMain);
+			border-color: var(--colorBorderLight) var(--colorBorderDark) var(--colorBorderDark) var(--colorBorderLight);
+			padding: 4px;
+			background-color: var(--colorInputBackground);
+			box-shadow: -2px -2px 0 var(--colorBorderLight) inset, 2px 2px 0 var(--colorBorderDark) inset;
+			color: var(--colorInputText);
+		}
+		#sc_upmw_postFullscreen button, .sc_upmw_classArchive button, .sc_upmw_classGallery button, .sc_upmw_classHighlight button,
+		#sc_upmw_postFullscreen input[type="date"], .sc_upmw_classArchive input[type="date"], .sc_upmw_classGallery input[type="date"], .sc_upmw_classHighlight input[type="date"],
+		#sc_upmw_postFullscreen select, .sc_upmw_classArchive select, .sc_upmw_classGallery select, .sc_upmw_classHighlight select {
+			border: 4px solid var(--colorBorderMain);
+			border-color: var(--colorBorderLight) var(--colorBorderDark) var(--colorBorderDark) var(--colorBorderLight);
+			background-color: var(--colorBorderMain);
+			color: var(--colorBorderText);
+		}
+    #sc_upmw_postFullscreen input[type="date"], .sc_upmw_classArchive input[type="date"], .sc_upmw_classGallery input[type="date"], .sc_upmw_classHighlight input[type="date"] {
+			background-color: var(--colorDisplaySectionBG);
+			color: var(--colorDisplaySectionText);
+		}
+		#sc_upmw_postFullscreen button[disabled], .sc_upmw_classArchive button[disabled], .sc_upmw_classGallery button[disabled], .sc_upmw_classHighlight button[disabled] {
+			border-color: var(--colorBorderLight);
+			background-color: var(--colorBorderLight);
+			cursor: var(--cursorDefault);
+			pointer-events: none;
+		}
+		.sc_upmw_searchOptionContainer label {padding-right: 0;}
+		.sc_upmw_searchOptionContainer sc_upmw_searchOptionCustom, .sc_upmw_searchOptionContainer .sc_upmw_searchOptionCustom_input {margin-left: 0.5em;}
+
+
+/* ----------------------------------------------- Loading Text ----------------------------------------------- */
+.sc_upmw_loadingPlaceholder {
+	display: block;
+	position: relative;
+	grid-area: 1 / 2 / 6 / 3;
+	border: 4px solid var(--colorBorderMain);
+	border-color: var(--colorBorderDark) var(--colorBorderLight) var(--colorBorderLight) var(--colorBorderDark);
+  padding: 8px;
+	min-height: calc(3em + 14px);
+	background-color: var(--colorDisplaySectionBG);
+	color: var(--colorDisplaySectionText);
+	text-align: center;
+	font-weight: bold;
+}
+	@keyframes sc_upmw_loadingAnim {
+		0% {content: "■"}
+		5% {content: "■■"}
+		10% {content: "■■■"}
+		15% {content: "■■■■"}
+		20% {content: "■■■■■"}
+		25% {content: "■■■■■■"}
+		30% {content: "■■■■■■■"}
+		35% {content: "■■■■■■■■"}
+		40% {content: "■■■■■■■■■"}
+		45% {content: "■■■■■■■■■■"}
+		50% {content: "■■■■■■■■■■■"}
+		55% {content: "■■■■■■■■■■■■"}
+		60% {content: "■■■■■■■■■■■■■"}
+		65% {content: "■■■■■■■■■■■■■■"}
+		70% {content: "■■■■■■■■■■■■■■■"}
+		75% {content: "■■■■■■■■■■■■■■■■"}
+		80% {content: "■■■■■■■■■■■■■■■■■"}
+		85% {content: "■■■■■■■■■■■■■■■■■■"}
+		90% {content: "■■■■■■■■■■■■■■■■■■■"}
+		95% {content: "■■■■■■■■■■■■■■■■■■■■"}
+		100% {content: "■■■■■■■■■■■■■■■■■■■■■"}
+	}
+  .sc_upmw_loadingPlaceholder::after {
+    content: var(--textLoadingContent);
+    animation-name: sc_upmw_loadingAnim;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+		display: block;
+		overflow: hidden;
+		position: absolute;
+		top: 50%; left: 50%;
+		transform: translate(-50%, calc(-50% + 0.75em));
+		border: 2px solid var(--colorBorderMain);
+		border-color: var(--colorBorderDark) var(--colorBorderLight) var(--colorBorderLight) var(--colorBorderDark);
+		height: 0.5em;
+		width: 13em;
+		color: var(--colorAccent);
+		line-height: 0.25em;
+		font-family: var(--fontFamily);
+		text-align: left;
+  }
+  .sc_upmw_loadingPlaceholder::before {
+		display: block;
+		position: absolute;
+		top: 50%; left: 50%;
+		transform: translate(-50%, calc(-50% - 0.75em));
+		font-weight: normal;
+  }
+		.sc_upmw_classArchive .sc_upmw_loadingPlaceholder::before {content: var(--textLoadingContent_archive);}
+		.sc_upmw_classGallery .sc_upmw_loadingPlaceholder::before {content: var(--textLoadingContent_gallery);}
+		.sc_upmw_classHighlight .sc_upmw_loadingPlaceholder::before {content: var(--textLoadingContent_highlight);}
+
+
+/* ---------------------------------------------- All Containers ---------------------------------------------- */
+.sc_upmw_tagContainer, .sc_upmw_dateContainer, .sc_upmw_searchContainer, .sc_upmw_sortContainer, .sc_upmw_postContainer, .sc_upmw_navContainer {
+  display: block;
+	overflow: hidden;
+	border: 4px solid var(--colorBorderMain);
+	border-color: var(--colorBorderDark) var(--colorBorderLight) var(--colorBorderLight) var(--colorBorderDark);
+  padding: 8px;
+	height: fit-content;
+	background: var(--colorDisplaySectionBG);
+	color: var(--colorDisplaySectionText);
+	z-index: 1;
+}
+
+
+/* ---------------------------------------------- Sort Containers ---------------------------------------------- */
+.sc_upmw_sortContainer {
+	display: grid;
+	grid-template: auto / 4em auto;
+	align-items: center;
+	grid-area: 2 / 1 / 3 / 2;
+}
+  .sc_upmw_sortEmptyContainer {
+    display: none;
+  }
+
+
+/* ----------------------------------------------- Tag Containers ----------------------------------------------- */
+.sc_upmw_tagContainer {
+	position: relative;
+	grid-area: 3 / 1 / 4 / 2;
+}
+  .sc_upmw_tagContainer::before {
+		content: var(--tagContainer_text);
+		display: block;
+	}
+  .sc_upmw_tagEmptyContainer {
+		display: none;
+	}
+
+	/* Tag Buttons */
+	.sc_upmw_tagContainer button {
+		display: inline-block;
+		margin: 2px;
+	}
+		.sc_upmw_tagContainer button.sc_upmw_tagButton_included {
+			background-color: var(--tagButton_includedBgColor);
+			color: var(--tagButton_includedTextColor);
+			font-weight: bold;
+			text-decoration: underline;
+		}
+		.sc_upmw_tagContainer button.sc_upmw_tagButton_excluded {
+			background-color: var(--tagButton_excludedBgColor);
+			color: var(--tagButton_excludedTextColor);
+			font-weight: bold;
+			text-decoration: line-through;
+		}
+
+
+/* ---------------------------------------------- Date Containers ---------------------------------------------- */
+.sc_upmw_dateContainer {
+	display: grid;
+	grid-template: auto auto / 4em auto;
+	align-items: center;
+	grid-area: 4 / 1 / 5 / 2;
+}
+  .sc_upmw_dateEmptyContainer {
+		display: none;
+	}
+
+
+/* --------------------------------------------- Search Containers --------------------------------------------- */
+.sc_upmw_searchContainer {
+	display: grid;
+	grid-template: 1.25em auto / 4em auto;
+	align-items: center;
+	grid-area: 1 / 1 / 2 / 2;
+	z-index: 0;
+}
+  .sc_upmw_searchEmptyContainer {
+    display: none;
+  }
+		.sc_upmw_searchOptionContainer {
+			display: block;
+			grid-area: 2 / 1 / 3 / 3;
+			padding-top: 8px;
+		}
+			.sc_upmw_classArchive .sc_upmw_searchOptionContainer {
+				display: none;
+				padding-bottom: 0;
+      }
+			.sc_upmw_searchOptionContainer::before {
+				content: var(--searchContainer_searchInText);
+				grid-area: 1 / 1 / 2 / 4;
+			}
+
+		/* Searchbox */
+		.sc_upmw_searchContainer input {width: 100%;}
+
+		/* Custom checkboxes */
+		.sc_upmw_searchContainer .sc_upmw_searchOptionCustom_input {
+			position: fixed;
+			top: -100%;
+			left: -100%;
+		}
+		.sc_upmw_searchOptionCustom  {
+			display: inline-block;
+			position: relative;
+			margin-bottom: -0.1em;
+			margin-left: 0.5em;
+			border: 2px solid var(--colorBorderMain);
+			border-color: var(--colorBorderDark) var(--colorBorderLight) var(--colorBorderLight) var(--colorBorderDark);
+			width: 1em;
+			height: 1em;
+			background-color: transparent;
+			color: var(--colorSide);
+			font-weight: bold;
+		}
+			.sc_upmw_searchOptionContainer label {
+        display: block;
+			}
+			.sc_upmw_searchOptionContainer label:hover .sc_upmw_searchOptionCustom {outline: 2px solid var(--colorAccent);}
+			input:focus + .sc_upmw_searchOptionCustom {
+				outline: 2px solid var(--colorAccent);
+			}
+			input:checked + .sc_upmw_searchOptionCustom  {
+				background-color: var(--colorAccent);
+				box-shadow: 0 0 0 1px var(--colorDisplaySectionBG) inset;
+      }
+
+
+/* ---------------------------------------------- Post Containers ---------------------------------------------- */
+.sc_upmw_postContainer {
+	display: block;
+	position: relative;
+	grid-area: 1 / 2 / 7 / 3;
+	padding: 1em;
+	height: 100%;
+	background: var(--BGPostContainer);
+	color: var(--colorPostContainerText);
+	z-index: 0;
+}
+	.sc_upmw_postEmptyContainer::before {
+		content: var(--postContainer_emptyText);
+		display: block;
+		border: 4px solid var(--colorPostBorderMain);
+		border-color: var(--colorPostBorderLight) var(--colorPostBorderDark) var(--colorPostBorderDark) var(--colorPostBorderLight);
+		width: 100%;
+		background-color: var(--colorPostBorderMain);
+		text-align: center;
+	}
+  .sc_upmw_classHighlight .sc_upmw_postContainer {
+		display: flex;
+		flex-wrap: wrap;
+		grid-area: 1 / 1 / 5 / 4;
+		padding: 0.25em;
+  }
+	.sc_upmw_classGallery .sc_upmw_postContainer {
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+	}
+
+
+
+/* Post links and full posts in containers */
+.sc_upmw_post {
+	overflow: hidden;
+	display: block;
+	position: relative;
+	margin: 5px 0;
+	border: 2px solid var(--colorBorderMain);
+	border-color: var(--colorBorderLight) var(--colorBorderDark) var(--colorBorderDark) var(--colorBorderLight);
+	padding: 0 8px;
+	background-color: var(--colorBorderMain);
+	color: var(--colorPostText);
+}
+.sc_upmw_link {
+	overflow: hidden;
+	display: block;
+	position: relative;
+	margin: 5px 0;
+	padding: 0.5em;
+	width: 100%;
+	background-color: var(--colorBorderMain);
+	color: var(--colorPostBorderText);
+	text-align: left;
+	font-size: 1em;
+}
+	.sc_upmw_link_disabled {
+    border: none;
+		background-color: var(--colorBorderLight);
+	}
+	.sc_upmw_link_disabled::after {
+    content: var(--postViewer_scheduledText);
+		display: block;
+		align-self: end;
+	}
+	.sc_upmw_link_redirect {
+	}
+	.sc_upmw_link_redirect::after {
+    content: var(--postViewer_redirectText);
+		display: block;
+		align-self: end;
+	}
+	.sc_upmw_link.sc_upmw_link_expand {
+		border: 2px solid var(--colorBorderMain);
+		border-color: var(--colorBorderLight) var(--colorBorderDark) var(--colorBorderDark) var(--colorBorderLight);
+		padding-right: 5em;
+		background-color: var(--colorPostBackground);
+		box-shadow: -2px -2px 0 var(--colorBorderLight) inset, 2px 2px 0 var(--colorBorderDark) inset;
+	}
+		div[class~="sc_upmw_displayFormat:expand"].sc_upmw_classGallery .sc_upmw_link {
+			padding-right: 0.5em;
+		}
+		.sc_upmw_link_expandButton {
+			display: block;
+			position: absolute;
+			top: 4px; right: 4px; bottom: 4px;
+			width: 5em;
+			background-color: var(--colorBorderMain);
+			color: var(--colorBorderText);
+			text-align: center;
+			font-weight: bold;
+			font-size: var(--fontSize);
+		}
+			.sc_upmw_classGallery .sc_upmw_link .sc_upmw_link_expandButton {
+				position: relative;
+				top: auto; right: auto; bottom: auto;
+				align-self: end;
+				height: 2em;
+				width: 100%;
+			}
+			.sc_upmw_classHighlight .sc_upmw_link.sc_upmw_link_expand {
+				border: none;
+			}
+			.sc_upmw_classHighlight .sc_upmw_link .sc_upmw_link_expandButton {
+				top: 0; right: 0; bottom: 0; left: 0;
+				width: auto;
+				background-color: transparent;
+			}
+				.sc_upmw_classHighlight .sc_upmw_link .sc_upmw_link_expandButton::before {content: "";}
+			.sc_upmw_post .sc_upmw_link_expandButton {
+				bottom: auto;
+				height: 2em;
+			}
+			.sc_upmw_link_expandButton::before {
+				content: var(--postLink_expandText);
+				display: block;
+				position: absolute;
+				top: 50%; left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			.sc_upmw_post .sc_upmw_link_expandButton::before {
+				content: var(--postLink_shrinkText);
+			}
+			div[class~="sc_upmw_displayFormat:full"] .sc_upmw_link {
+				width: 100%;
+			}
+
+.sc_upmw_link .sc_upmw_post_title {
+	display: block;
+	font-weight: bold;
+	font-size: 1.25em;
+	text-decoration: underline;
+}
+.sc_upmw_link .sc_upmw_post_dateLink {
+	display: inline-block; 
+	font-size: 0.75em;
+	margin-right: 1em;
+}
+.sc_upmw_link .sc_upmw_post_thumbImage {
+	display: block;
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	max-height: 25vh;
+	object-fit: cover;
+	object-position: center;
+}
+
+.sc_upmw_classGallery .sc_upmw_link {
+	display: grid;
+	column-gap: 6px;
+	grid-template: auto auto auto / auto 10em;
+	margin: 4px;
+	width: calc(50% - 8px);
+}
+	.sc_upmw_classGallery .sc_upmw_link .sc_upmw_post_thumbImage {
+		grid-area: 1 / 1 / 4 / 2;
+		width: 100%;
+	}
+	.sc_upmw_classGallery .sc_upmw_link .sc_upmw_post_tags {
+		font-size: 0.8em;
+  }
+	.sc_upmw_classGallery .sc_upmw_link .sc_upmw_post_tags::before{content: "";}
+
+.sc_upmw_classHighlight .sc_upmw_link {    
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	margin: 2px;
+	padding: 8px;
+	width: calc(calc(100% / 5) - 4px);
+	height: auto;
+	background-color: var(--colorBorderMain);
+	text-align: center;
+}
+	.sc_upmw_classHighlight .sc_upmw_link .sc_upmw_post_thumbImage {
+		width: 100%;
+    height: 10em;
+		min-height: auto;
+	}
+	.sc_upmw_classHighlight .sc_upmw_link .sc_upmw_post_title {
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+	.sc_upmw_classHighlight .sc_upmw_link_redirect::after, .sc_upmw_classHighlight .sc_upmw_link_disabled::after {content: none;}
+
+
+
+/* Fullscreen post display */
+@keyframes fullScreenPostFade {
+	0% {opacity: 0;}
+	50% {opacity: 0;}
+	50.1% {opacity: 1;}
+	100% {opacity: 1;}
+}
+@keyframes fullScreenPostViewerBackground {
+	0% {background: transparent;}
+	50% {background: transparent;}
+	50.1% {background: var(--BGPostContainer)}
+	100% {background: var(--BGPostContainer)}
+}
+@keyframes fullScreenCoverFade {
+	0% {background-image: none;}
+	12.5% {background-image: linear-gradient(90deg, var(--colorBorderMain) 0%, var(--colorBorderMain) 25%, transparent 25%), linear-gradient(180deg, var(--colorBorderMain) 0%, var(--colorBorderMain) 25%, transparent 25%)}
+	25% {background-image: linear-gradient(90deg, var(--colorBorderMain) 0%, var(--colorBorderMain) 50%, transparent 50%), linear-gradient(180deg, var(--colorBorderMain) 0%, var(--colorBorderMain) 50%, transparent 50%)}
+	37.5% {background-image: linear-gradient(90deg, var(--colorBorderMain) 0%, var(--colorBorderMain) 75%, transparent 75%), linear-gradient(180deg, var(--colorBorderMain) 0%, var(--colorBorderMain) 75%, transparent 75%)}
+	50% {background-image: linear-gradient(90deg, var(--colorBorderMain) 0%, var(--colorBorderMain) 100%, transparent 100%), linear-gradient(180deg, var(--colorBorderMain) 0%, var(--colorBorderMain) 100%, transparent 100%)}
+	62.5% {background-image: linear-gradient(90deg, var(--colorBorderMain) 0%, var(--colorBorderMain) 75%, transparent 75%), linear-gradient(180deg, var(--colorBorderMain) 0%, var(--colorBorderMain) 75%, transparent 75%)}
+	75% {background-image: linear-gradient(90deg, var(--colorBorderMain) 0%, var(--colorBorderMain) 50%, transparent 50%), linear-gradient(180deg, var(--colorBorderMain) 0%, var(--colorBorderMain) 50%, transparent 50%)}
+	87.5% {background-image: linear-gradient(90deg, var(--colorBorderMain) 0%, var(--colorBorderMain) 25%, transparent 25%), linear-gradient(180deg, var(--colorBorderMain) 0%, var(--colorBorderMain) 25%, transparent 25%)}
+	100% {background-image: none; display: none;}
+}
+#sc_upmw_postFullscreen {
+  display: none;  /* This is updated via the js script */
+	animation-name: fullScreenPostViewerBackground;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+  position: fixed;
+  top:0; right:0; bottom:0; left:0;
+	margin: 0;
+	border: none;
+	padding: 1em;
+  background-color: transparent;
+  z-index: 9999;
+}
+	#sc_upmw_postFullscreen > * {
+		animation-name: fullScreenPostFade;
+		animation-duration: 1s;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+	}
+	#sc_upmw_postFullscreen::after {
+    content: "";
+		animation-name: fullScreenCoverFade;
+		animation-duration: 1s;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+		display: block;
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		background-color: transparent;
+		background-size: 4px 4px;
+		background-repeat: repeat;
+		z-index: 999;
+		pointer-events: none;
+	}
+  #sc_upmw_postFullscreen > button {
+    position: absolute;
+		width: 2em;
+		height: 2em;
+		font-weight: bold;
+		font-size: var(--fontSize);
+		z-index: 2;
+  }
+		#sc_upmw_postFullscreen_closeButton {
+			top: calc(2.5em + 14px); right: calc(2.5em + 14px);
+		}
+		#sc_upmw_postFullscreen_prevButton {
+			top: calc(2.5em + 14px); left: calc(2.5em + 14px);
+		}
+		#sc_upmw_postFullscreen_nextButton {
+			top: calc(2.5em + 14px); left: calc(5em + 14px);
+		}
+  #sc_upmw_postFullscreen_inner {
+    overflow: hidden auto;
+    position: absolute;
+    top:2em; right:50%; bottom:2em;
+    transform: translate(50%, 0);
+		border: 4px solid var(--colorBorderMain);
+		border-color: var(--colorBorderLight) var(--colorBorderDark) var(--colorBorderDark) var(--colorBorderLight);
+    padding: 8px;
+		width: calc(100% - 4em);
+    background-color: var(--colorBorderMain);
+  }
+    #sc_upmw_postFullscreen_inner::before {
+			content: "";
+			display: block;
+			position: sticky;
+			top: 0; right: 8px; left: 8px;
+			border: 2px solid var(--colorBorderMain);
+			border-color: var(--colorBorderDark) var(--colorBorderLight) var(--colorBorderLight) var(--colorBorderDark);
+			height: 3em;
+			background-color: var(--colorAccent);
+			background-image: linear-gradient(0deg, rgba(255,255,255,0.25) 0%, transparent 100%);
+			box-shadow: 0 0 0 8px var(--colorBorderMain);
+			z-index: 1;
+    }
+		#sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_scheduled, #sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_redirect {
+		}
+			#sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_scheduled .sc_upmw_post_title, #sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_redirect .sc_upmw_post_title {
+				display: block;
+				position: relative;
+				margin-top: 0.5em;
+				font-size: 2em;
+				font-weight: bold;
+				z-index: 0;
+			}
+			#sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_scheduled .sc_upmw_post_thumbImage, #sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_redirect .sc_upmw_post_thumbImage {
+				display: block;
+				margin-top: 8px;
+				border: 4px solid var(--colorBorderMain);
+				border-color: var(--colorBorderDark) var(--colorBorderLight) var(--colorBorderLight) var(--colorBorderDark);
+				padding: 8px;
+				height: 10em;
+				width: calc(100% - 16px);
+				max-height: 80vh;
+				background-color: var(--colorPostBackground);
+				color: var(--colorPostText);
+				object-fit: cover;
+				object-position: center;
+			}
+			#sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_redirect .sc_upmw_post_thumbImage {
+				width: 100%;
+			}
+			#sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_scheduled .sc_upmw_post_dateLink::before {content: var(--postViewer_scheduledDateText);}
+			#sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_redirect .sc_upmw_post_dateLink::before {content: var(--postViewer_redirectDateText);}
+			#sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_scheduled .sc_upmw_post_description::after {display: block; content: var(--postViewer_scheduledText);}
+			#sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_redirect .sc_upmw_post_description::after {display: block; content: var(--postViewer_redirectText);}
+			#sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_scheduled .sc_upmw_post_description, #sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_redirect .sc_upmw_post_description {
+				display: block;
+				margin-top: 8px;
+				border: 4px solid var(--colorBorderMain);
+				border-color: var(--colorBorderDark) var(--colorBorderLight) var(--colorBorderLight) var(--colorBorderDark);
+				padding: 8px;
+				background-color: var(--colorPostBackground);
+				color: var(--colorPostText);
+			}
+			#sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_scheduled > *, #sc_upmw_postFullscreen_inner.sc_upmw_postFullScreen_redirect > * {
+				display: block;
+				margin: 0 8px;
+			}
+		.sc_upmw_postHeader, .sc_upmw_postBody, .sc_upmw_postFooter {
+			margin: 8px 0;
+			border: 4px solid var(--colorBorderMain);
+			border-color: var(--colorBorderDark) var(--colorBorderLight) var(--colorBorderLight) var(--colorBorderDark);
+		  padding: 8px;
+			background-color: var(--colorPostBackground);
+			color: var(--colorPostText);
+    }
+		.sc_upmw_postHeader {
+			border: none;
+			background-color: var(--colorBorderMain);
+			z-index: 1;
+		}
+			.sc_upmw_postHeader .sc_upmw_post_titleImg {
+				display: block;
+				margin: 8px -8px;
+				margin-bottom: 0;
+				border: 4px solid var(--colorBorderMain);
+				border-color: var(--colorBorderDark) var(--colorBorderLight) var(--colorBorderLight) var(--colorBorderDark);
+				padding: 8px;
+				width: calc(100% + 16px);
+				height: auto;
+				max-height: 80vh;
+				background-color: var(--colorPostBackground);
+				color: var(--colorPostText);
+				object-fit: contain;
+				object-position: center;
+			}
+			.sc_upmw_postHeader .sc_upmw_post_title {
+				display: block;
+				font-size: 2em;
+				font-weight: bold;
+			}
+			.sc_upmw_postHeader .sc_upmw_post_datePost {
+				display: block;
+				font-size: 0.8em;
+			}
+			.sc_upmw_postHeader .sc_upmw_post_author {
+				display: block;
+			}
+				.sc_upmw_postHeader .sc_upmw_post_author::before {
+					content: var(--postViewer_authorBefore);
+				}
+			.sc_upmw_postHeader .sc_upmw_post_tags {
+				display: block;
+			}
+			.sc_upmw_postHeader .sc_upmw_post_tagText, .sc_upmw_post_tagText {
+				margin-right: 6px;
+			}
+				.sc_upmw_postHeader .sc_upmw_post_tagText::before, .sc_upmw_post_tagText::before {
+					content: "#";
+				}
+				.sc_upmw_postHeader .sc_upmw_post_tags::before, .sc_upmw_post_tags::before {
+					content: var(--postViewer_tagBefore);
+				}
+				.sc_upmw_postHeader .sc_upmw_post_tagText::after {content: ", ";}
+				.sc_upmw_postHeader .sc_upmw_post_tagText:last-child::after {content: "";}
+		.sc_upmw_postBody {
+			position: relative;
+		}
+			.sc_upmw_postBody img {
+				display: block;
+				margin: 0.5em 0;
+				width: 100%;
+				max-width: 100%;
+				max-height: 80vh;
+				object-fit: contain;
+			}
+		.sc_upmw_postFooter {
+			display: block;
+			text-align: center;
+			z-index: 1;
+		}
+
+
+/* ----------------------------------------------- Nav Containers ----------------------------------------------- */
+.sc_upmw_navContainer {
+	grid-area: 5 / 1 / 6 / 2;
+  text-align: center;
+}
+  .sc_upmw_navEmptyContainer, div[class~="sc_upmw_perPage:0"] .sc_upmw_navContainer {
+    display: none;
+  }
+  .sc_upmw_classArchive .sc_upmw_navContainer {
+	 grid-area: 3 / 1 / 4 / 2;
+  }
+	.sc_upmw_navContainer button {
+		margin: 2px;
+	}
+	.sc_upmw_navPageNumber {
+		display: inline-block;
+	}
+		.sc_upmw_navPageNumber button.sc_upmw_navCurrentPage {
+			border-color: transparent;
+      background-color: transparent;
+		}
+
+
+/* ------------------------------------------------ Small Screens ------------------------------------------------ */
+@media only screen and (max-width: 940px) {
+	.sc_upmw_classArchive, .sc_upmw_classGallery, .sc_upmw_classHighlight {
+		display: block;
+	}	
+	.sc_upmw_classHighlight .sc_upmw_link {
+		width: calc(calc(100% / 2) - 4px);
+	}
+}

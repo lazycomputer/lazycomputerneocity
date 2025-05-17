@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Internal Head Content -->
+    <title>Universal Post Maker - Scribblemakes Widget</title>
+    <link href="scWidget_UniversalPostMaker_styleBasic.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+	
+	<h1>Universal Post Maker - Basic Example</h1>
+	<div class="sc_upmw_classArchive"></div>
+	<div class="sc_upmw_classGallery"></div>
+	<div class="sc_upmw_classHighlight"></div>
+	<noscript class="sc_upmw_noScript">This widget only works with Javascript. Enable Javascript to access this widget</noscript>
+	
+	<!-- Scripts -->
+	<script src="scWidget_UniversalPostMaker_script.js"></script>
+	<script>
+	  // Put any variable changes here for individial page settings (i.e. changing the post format txt file location)
+	  // You can delete any variables in this section (excluding the function at the bottom) without error
+    // File and folder directory variables
+    sc_upmw_txtFile_postList = 'scWidget_UniversalPostMaker_postList.txt'; // Pathway to the post list txt file
+    sc_upmw_folder_postStorage = 'scWidget_UniversalPostMaker_postData/';   // Pathway to the post folder
+
+    // Time and date setup
+    sc_upmw_timezone = 10;  // What your timezone is compared to UTC, for example: AEST is UTC+10
+
+    // Display post settings
+    sc_upmw_postDisplaySetting_scheduling = true; // If true, hide / alter posts dated for the future
+	  
+    // Collect the post list and default post format text file
+    sc_upmw_Start();
+	</script>
+	
+  </body>
+</html>

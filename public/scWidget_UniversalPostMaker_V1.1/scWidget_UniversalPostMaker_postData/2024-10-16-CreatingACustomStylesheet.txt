@@ -1,0 +1,50 @@
+<<TITLE: Creating a Custom Stylesheet:>>
+<<AUTHOR: Scribblemakes:>>
+<<TAGS: Intermediate:>>
+
+<<DESCRIPTION: A guide to making your own CSS stylesheet for this widget :>>
+
+<<CONTENT:
+	<p>This guide will go over some of the HTML classes and IDs in this widget that can be assigned CSS rules. The majority of these classes and IDs are assigned in the widget's settings (read more about settings in the <a href="https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-08-ChangingSettings" onclick="window.location.href='https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-10-08-ChangingSettings'; window.location.reload();">Changing Settings guide</a>), but there are a few that have preset classes via extensions and suffixes. This guide does <i>not</i> teach CSS and assumes you understand how to use, and edit, it. If you do not have a basic understanding of CSS then it's recommended to work through the <a href="https://www.w3schools.com/Css">W3Schools CSS tutorials</a> or get the premade CSS stylesheets on the <a href="https://scribblemakes.itch.io/sc-upmw">Universal Post Maker Widget Itch.io page</a>.</p>
+	
+	<hr>
+	
+	<h3>Required CSS and Forced CSS</h3>
+	<p>While the majority of the widget can be freely styled, there are some elements that need to be styled a certain way or the widget becomes harder to view or use. Some CSS styles will also be forced onto some elements to make the widget functions, making styling them pointless:</p>
+	<ul>
+	  <li>Class <code>sc_upmw_containerClass_searchOptionCustom</code> + "_input" (by default <code>sc_upmw_searchOptionCustom_input</code>)</li>
+	    <ul><li>If you're not using custom checkboxes, this is the HTML class for the search bar's default checkboxes. For accessibility purposes: they cannot be hidden with <code>display: hidden</code> or made invisible with <code>opacity: 0</code>. The easiest method to hide them is using <code>position: fixed</code> and setting the <code>top/bottom</code> and <code>right/left</code> attributes to position them far offscreen. You can also set their <code>z-index</code> if you have an overlapping element.</li></ul>
+	  <li>ID <code>sc_upmw_postDisplaySetting_postFullscreenID</code> (by default <code>sc_upmw_postFullscreen</code>)</li>
+	    <ul><li>It's highly recommended to have this element use <code>position: fixed</code> to make sure it's visible on the page while covering any other post links. This element also has its <code>display</code> attribute forcibly to "block" by the widget script and should have it set to "none" in the stylesheet.</li></ul>
+	</ul>
+	
+	<hr>
+	
+	<h3>Preset and Automated HTML Classes</h3>
+	<p>Several elements in the widget are given a class automatically based on their relationship to other elements. The class name is dependant on the relation's class name and a suffix, for example: an element close to another element using the class 'element_single' might have the class 'element_single_one'.</p>
+	<ul>
+	  <li>ID <code>sc_upmw_postDisplaySetting_postFullscreenID</code> + "_prevButton" (by default: <code>sc_upmw_postFullscreen_prevButton</code>) = The previous button in the full screen post view</li>
+	  <li>ID <code>sc_upmw_postDisplaySetting_postFullscreenID</code> + "_nextButton" (by default: <code>sc_upmw_postFullscreen_nextButton</code>) = The next button in the full screen post view</li>
+	  <li>ID <code>sc_upmw_postDisplaySetting_postFullscreenID</code> + "_closeButton" (by default: <code>sc_upmw_postFullscreen_closeButton</code>) = The close button in the full screen post view</li>
+	  <li>ID <code>sc_upmw_postDisplaySetting_postFullscreenID</code> + "_inner" (by default: <code>sc_upmw_postFullscreen_inner</code>) = The content of a post shown inside the fullscreen post viewer</li>
+	  <li>Class <code>sc_upmw_containerClass_searchOptionCustom</code> + "_input" (by default: <code>sc_upmw_searchOptionCustom_input</code>) = The default checkboxes shown in the search container</li>
+	  <li>Class <code>sc_upmw_postClass_link</code> + "_disabled" (by default: <code>sc_upmw_link_disabled</code>) = Post links that can't be clicked on or accessed</li>
+	  <li>Class <code>sc_upmw_postClass_link</code> + "_redirect" (by default: <code>sc_upmw_link_redirect</code>) = Post links that open another webpage when clicked on</li>
+	  <li>Class <code>sc_upmw_postClass_link</code> + "_expand" (by default: <code>sc_upmw_link_expand</code>) = Post links that become a full post, inside the display container, when their buttons are clicked</li>
+	  <li>Class <code>sc_upmw_postClass_link</code> + "_expandButton" (by default: <code>sc_upmw_link_expandButton</code>) = Buttons on post links that expand the link into a full post, inside the display container, when clicked on</li>
+	</ul>
+	<p>There are also several elements that have code-relevant IDs that change depending on what display container and post they're interacting with (e.g. <code>sc_upmw_searchOption_4_author</code>). You should not rely on these IDs to style your widget, use the classes assigned to each type of element instead.</p>
+:>>
+
+<<TITLEIMGALT: An image with the title of the post:>>
+<<THUMBIMGALT: An image thumbnail with 'Creating a Custom Stylesheet' written on it:>>
+
+<<COMMENTS::>>
+<<LINKS: <a href="https://scribblemakes.com/code">Return to Code Page</a> :>>
+
+
+
+
+
+
+

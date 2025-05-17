@@ -1,0 +1,65 @@
+<<TITLE: Quick-Start Guide:>>
+<<AUTHOR: Scribblemakes:>>
+<<TAGS: Beginner:>>
+
+<<DESCRIPTION: A quick guide covering the basics:>>
+
+<<CONTENT:
+	<p>Welcome to the Universal Post Maker widget's Quick-Start Guide. This guide will take you through setting up the UPMW as quickly as possible and will only cover the basics. If you'd like to customise your widget more, check out the other guides and tips on this page.</p>
+	<ol>
+    <li>Open your website directory so you can edit your files. This tutorial will use Neocities for its examples, but any website host that allows you to edit files follows the same steps. If you're also using Neocities, you should be on a page that looks like the image below: <img src="/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_postData/2024-09-05-08-QuickStartGuide_internalImage_01.png" alt="A screenshot of a new Neocities account with the default files visible"></li>
+    <li>Download the <a href="https://scribblemakes.com/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_example#2024-09-05-08-QuickStartGuide">Universal Post Maker Widget .zip file</a> and extract the files before uploading them to your website. Upload the files to the same location, this can be inside a folder or at the top of your directory like the image below: <img src="/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_postData/2024-09-05-08-QuickStartGuide_internalImage_02.png" alt="A screenshot of a Neocities account with the widget files installed"></li>
+    <li>You can check if these files are in the correct location by opening either of the HTML files and view the webpage. If images are visible, and posts are visible, then the files are in the correct location.</li>
+    <li>Open the file named <code>scWidget_UniversalPostMaker_script.js</code> and find the variable named <code>sc_upmw_timezone</code> (you can find this easily by using <kbd>ctrl + F</kbd> and entering the variable's name). After the <kbd>=</kbd> enter your UTC time. For example: If your timezone was set in Perth, Australia, then your UTC time would be 8. If you live in the west, your UTC timezone will be negative, and if you live in the east then it will be positive. You can check your UTC timezone on <a href="https://www.worldtimebuddy.com/">World Time Buddy</a>. <img src="/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_postData/2024-09-05-08-QuickStartGuide_internalImage_06.png" alt="A screenshot of a javascript file with a variable named 'sc_upmw_timezone' set to 8 next to the website 'World Time Buddy'. The World Time Buddy website shows time difference between Perth, Australia, and UTC, which is 8."></li>
+    <li>Find the variable named <code>sc_upmw_postDisplaySetting_scheduling</code> and set it to <code>true</code> if you want future posts to be inaccessible. Set the variable to <code>false</code> if you want future posts to be clickable. The variable beneath it, <code>sc_upmw_postDisplaySetting_scheduledHidden</code>, controls if a scheduled post is visible or hidden. <img src="/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_postData/2024-09-05-08-QuickStartGuide_internalImage_07.png" alt="A screenshot of a javascript file showing the variables mentioned before this image"></li>
+    <li>Go back to your website files and find the HTML file named <code>scWidget_UniversalPostMaker_basicExample.html</code> (You can rename the file to whatever you want. In the image below it has been renamed to <code>Blog.html</code>). Open the HTML file and choose the div type you'd prefer out of <code>Archive</code>, <code>Gallery</code>, and <code>Highlight</code> (If you're unsure what to choose, archive works best for writing, gallery works best for images, and highlight shows a small collection of posts). Delete any divs that have a type you do not want to use. <img src="/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_postData/2024-09-05-08-QuickStartGuide_internalImage_13.png" alt="A screenshot of a HTML file with three div elements highlighted. Their class names, in order, are 'sc_upmw_classArchive', 'sc_upmw_classGallery', and 'sc_upmw_classHighlight'."></li>
+      <ul>
+        <li>If you're adding the widget to a pre-existing HTML page, or making a new HTML page, make sure that the file you want to use is in the same location/folder as the HTML file named <code>scWidget_UniversalPostMaker_basicExample.html</code>. The <code>index.html</code> page will be used for this example.</li>
+        <li>Start by linking the page to the widget CSS in the header. You'll need to add the line: <code>&lt;link href="scWidget_UniversalPostMaker_styleBasic.css" rel="stylesheet" type="text/css" media="all"&gt;</code> beneath the <code>&lt;link&gt;</code> connecting to the "/style.css" file.</li>
+        <li>Add your preferred div type to the body of your HTML page along with the javascript call. You can copy these from the HTML files, but an example using the gallery display would look like:<br>
+        <code>&lt;div class="sc_upmw_classGallery"&gt;&lt;/div&gt;<br><br>
+        &lt;script src="scWidget_UniversalPostMaker_script.js"&gt;&lt;/script&gt;<br>
+        &lt;script&gt;sc_upmw_Start();&lt;/script&gt;</code><br>
+        Make sure that <code>sc_upmw_Start();</code> is the last line of code in your script section, that line starts the program and needs to come after any setting changes. <img src="/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_postData/2024-09-05-08-QuickStartGuide_internalImage_05.png" alt="A screenshot of a default index HTML file from Neocities with an additional CSS sheet linked, div in the body section, and script section"></li>
+      </ul>
+    <li>Go back to your website files and find the folder named <code>scWidget_UniversalPostMaker_postData</code>. Inside that folder you can delete every file except for the default images. With all of the files deleted (except for 2 images) you can start adding your own posts. Make a new post and name the file after the date it was posted and the default title you want it to have, using the format: <code>YYYY-MM-DD-HOUR-MIN-TITLEHERE.txt</code>. For example: A post named 'How to Post' made on the 3rd of January in 2024, at 8pm, would be named: <code>2024-01-03-20-00-How to Post.txt</code>. This example will use a post titled 'newfile' made in 2024, which is named: <code>2024-newFile.txt</code>.</li>
+      <ul>
+        <li>While the format above uses a full date at the start, you do not need to fill in every part. The example above only uses a year, for example, so feel free to only use the date elements you want. The other parts of the date will be filled in with default values, which aren't covered in this guide. <img src="/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_postData/2024-09-05-08-QuickStartGuide_internalImage_08.png" alt="A screenshot of a Neocities dashboard, showing the inside of a folder named 'scWidget_UniversalPostMaker_postData'. A new file is being created named '2024-newFile.txt'."></li>
+      </ul>
+    <li>Open the text file you just made. You'll be adding special 'tags' to the file so the script knows how to convert your post information into information that appears on your website. There are 15 types of tags you can use:</li>
+      <ul>
+        <li><strong>TITLE</strong> - Title. Gives the post a title rather than using the file name.</li>
+        <li><strong>DATEPOST</strong> - Date Post. How the date will be written on a full view post.</li>
+        <li><strong>DATELINK</strong> - Date Link. How the date will be written on a post link.</li>
+        <li><strong>AUTHOR</strong> - Author. The name of the author.</li>
+        <li><strong>TAGS</strong> - Tags. Categories the post falls under (separate tags with a <kbd>;</kbd>, for example: <code>tag1;tag2;tag3</code>).</li>
+        <li><strong>DESCRIPTION</strong> - Description. A short summary of the post's contents.</li>
+        <li><strong>CONTENT</strong> - Content. The main text and body of the post, uses HTML script.</li>
+        <li><strong>TITLEIMG</strong> - Title Image. The URL for the main image.</li>
+        <li><strong>TITLEIMGALT</strong> - Title Image ALT. The ALT text for the main image.</li>
+        <li><strong>THUMBIMG</strong> - Thumb Image. The URL for the thumbnail for the post.</li>
+        <li><strong>THUMBIMGALT</strong> - Thumb Image ALT. The ALT text for the thumbnail.</li>
+        <li><strong>LINKS</strong> - Links. An additional section that uses HTML, entering HTML links here is suggested.</li>
+        <li><strong>COMMENTS</strong> - Comments. An additional section that uses HTML, adding a comment section here is suggested.</li>
+        <li><strong>CLASSES</strong> - Classes. Additional classes added to post links and the full post viewer (separate classes with a <kbd>;</kbd>).</li>
+        <li><strong>REDIRECT</strong> - Redirect. A URL link. When a post with a redirect value is clicked it will automatically open this link.</li>
+      </ul>
+    <li>To use the tags, you write them starting with <code>&lt;&lt;TAGNAME:</code> and end them with <code>:&gt;&gt;</code>. You then add the information for that tag between them. For example: to give a post the title 'How to Post' you would write: <code>&lt;&lt;TITLE: How to Post:&gt;&gt;</code>. Fill in your text file with the information you'd like to show on the post. If you'd like to remove an element that's being filled by default (for example: the description) you can add the tag but leave it empty. For example: <code>&lt;&lt;DESCRIPTION: :&gt;&gt;</code> <img src="/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_postData/2024-09-05-08-QuickStartGuide_internalImage_09.png" alt="A screenshot of a text file filled with basic information to make a post"></li>
+    <li>When your post is finished, you can upload the title and thumbnail image for them if your post has them. You can either set the specific URL to those images in your post text file using tags, or you can upload the images with specific file names. If you want the script to do it automatically, name your title image the same as your post name but add <code>_title.png</code> at the end. The thumbnail will be the same but end with <code>_thumbnail.png</code>. For example: for the post file <code>2024-newFile.txt</code>, the title image would be called <code>2024-newFile_title.png</code>. <img src="/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_postData/2024-09-05-08-QuickStartGuide_internalImage_11.png" alt="A screenshot of a Neocities folder with several files, notably a file named '2024-newFile.txt' and a file named '2024-newFile_title.png'"></li>
+    <li>Go back to the folder that holds the javascript and HTML files and find the file named <code>scWidget_UniversalPostMaker_postList.txt</code>. Open that file and delete all of the text inside of it, then add the name of your file. For this example, it would only have the text: <code>2024-newFile.txt</code>. <img src="/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_postData/2024-09-05-08-QuickStartGuide_internalImage_12.png" alt="A screenshot of a text file named 'scWidget_UniversalPostMaker_postList.txt' with '2024-newFile.txt' written inside it"></li>
+    <li>Your post is now complete! You can check if it was setup correctly by opening the HTML page that you edited earlier. To add more posts, repeat steps 7-11. <img src="/code/scWidget_UniversalPostMaker/scWidget_UniversalPostMaker_postData/2024-09-05-08-QuickStartGuide_internalImage_14.png" alt="A screenshot of the post maker widget functioning on a webpage. The widget has one post named 'Post Name'."></li>
+  </ol>
+:>>
+
+<<TITLEIMGALT: An image with the title of the post:>>
+<<THUMBIMGALT: An image thumbnail with 'Quick Start Guide' written on it:>>
+
+<<COMMENTS::>>
+<<LINKS: <a href="https://scribblemakes.com/code">Return to Code Page</a> :>>
+
+
+
+
+
+
+
