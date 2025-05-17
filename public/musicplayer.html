@@ -1,0 +1,36 @@
+<div class="musicfriend">
+		<script src="webamp.bundle.min.js"></script>
+		<div id="app"></div>
+		<script>
+			const Webamp = window.Webamp;
+			const webamp = new Webamp({
+				initialTracks: [
+					{metaData: {
+					artist: "Tom Cardy",
+					title: "Lofi"},
+					url: "https://files.catbox.moe/1uqzoy.mp3"
+					},
+					{metaData: {
+					artist: "Sabrina Carpenter", 
+					title: "Couldn't Make It Any Harder"},
+					url: "https://files.catbox.moe/bz4nv3.mp3"
+					},
+					{metaData: 
+					{artist: "Katie Pomery", 
+					title: "i go quiet"}, url: "https://files.catbox.moe/zkh4l9.mp3"
+					},
+					{metaData: {artist: "Stella Donnelly", title: "Beware of the Dogs"}, 
+					url: "https://files.catbox.moe/22kc14.mp3"
+					},
+					{metaData: {
+					artist: "Camp Cope", 
+					title: "Seventeen Going Under (like a version)"}, 
+					url: "https://files.catbox.moe/7giih2.mp3"
+					},
+				]
+			});
+
+			webamp.renderWhenReady(document.getElementById('app'));
+		</script>
+		<link rel="stylesheet" href="webampstyle.css"/>
+		</div>
