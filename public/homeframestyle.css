@@ -67,6 +67,13 @@ body {
 		text-align:center;
 	}
 	
+	.yellowtxt{
+		color:yellow;
+		margin-top:-40px;
+		margin-left:190px;
+		margin-bottom:10px;
+	}
+	
 	.welcomesign {
 		text-align:right;
 	}
@@ -102,20 +109,6 @@ body {
 		margin-top:0px;
 	}
 	
-	.homemusic {
-	position:absolute;
-	margin-left:80px;
-	margin-top:130px;
-	z-index:2;
-	}
-
-	.homemusiccred{
-		position:absolute;
-		margin-top:175px;
-		margin-left:245px;
-		background-color:black;
-		color:yellow;
-	}
 
 /* more stuff */
 

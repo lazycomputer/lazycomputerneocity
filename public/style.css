@@ -66,6 +66,30 @@ body {
 	width:35%;
 }
 
+/* home music */
+
+.homemusic {
+	position:absolute;
+	margin-left:330px;
+	margin-top:-10px;
+	z-index:6;
+
+	}
+
+	.homemusiccred{
+		position:absolute;
+		margin-top:-5px;
+		margin-left:595px;
+		background-color:black;
+		color:yellow;
+		z-index:7;
+	}
+	
+	.audioplayer{
+		width:84%;
+		opacity:80%
+	}
+
 /* BACKGROUND DIVS */
 
 .tamatopbg{
