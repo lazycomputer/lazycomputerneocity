@@ -1,15 +1,6 @@
 
-:root {
-	--asidetxt: #c7aaf4;
-	--maintxt: #e6a9eb;
-	--headertxt:#b5e09a;
-	--footertxt:#b5e5dc;
-	--borders: double black;
-	--bg:black;
-}
-
 body {
-	background-image: url(imgs/scanlinesbg.png);
+	background-image: var(--backgroundimg);
 	
 	font:arial;
 }
@@ -87,20 +78,26 @@ aside img{
 	justify-content:center;
 	background-color:var(--asidetxt);
 }
+ul{
+	padding: 1em;
+}
+li ul{
+	padding:0.3em;
+}
 
 footer {
-	flex: 1 1 80%;
+	flex: 1 1 100%;
 	background-color:var(--bg);
 	border: var(--borders);
 	padding:0.6rem;
 	margin: 0 15rem;
-	display:flex;
-	justify-content:space-around;
+	display:inline-flex;
+	justify-content:space-between;
 	color:var(--footertxt);
 }
 
-aside a {
-	color:#e067d7;
+a {
+	color: var(--acolour);
 	font-weight:bolder;
 }
 
@@ -112,12 +109,14 @@ h1 {
 h2 {
 	font-size:1.025em;
 	margin:0;
+	flex: 1 1 100%;
+	text-align: center;
+	color:var(--asidetxt);
 	
 }
 
 p {
 	flex:1 1 100%;
-	padding:0 0.5rem;
 	margin:0.5rem 0;
 }
 
