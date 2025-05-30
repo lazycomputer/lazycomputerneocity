@@ -1,0 +1,155 @@
+:root {
+	--bgz: 1;
+	--contentz: 5;
+	
+	/* Colours */
+	--txt: white;
+	--bg: black;
+	
+	/* Background vars*/
+	--mainbg: url("imgs/spacecarpetbg.jpg");
+	--maincontentbg: url("imgs/spaceheybground.jpg");
+	--darkspacebg: url("imgs/darkspacebg.png");
+}
+
+body {
+	background-image: var(--darkspacebg);
+	color: var(--txt);
+	font-family: 'Nunito', sans-serif;
+}
+
+#container {
+	 display: flex;
+	 margin: 0 auto;
+	 /**/
+	 justify-content: center;
+	 min-height: 60vh;
+	 max-width:90vh;
+	 color: var(--txt);
+	 padding:20px;
+ }
+
+main {
+    display:flex;
+	flex-flow: column wrap;
+	align-content:center;
+	justify-content:center;
+	min-height: 100vh;
+	max-width:60vh;
+ }
+ 
+ .lazytitle {
+	 justify-content:center;
+ }
+ 
+ .computertitle {
+	 justify-content:center;
+ }
+ 
+.indextxt{
+	max-width:10em;
+	background-color:var(--bg);
+ }
+
+ .new{
+	background-color:var(--bg);
+	justify-content: flex-start;
+	display:inline-flex;
+	flex-direction:row;
+	padding: 0;
+	max-width:10em;
+	font-size:1.5em;
+	font-weight: bolder;
+	text-align: center;
+	margin-top:-5em;
+ }
+
+ .new img{
+	width:80%;
+	margin-top:-4em;
+ }
+ 
+ .comeonin img{
+	 width:50%;
+ }
+ 
+ .comeonintxt {
+	width:60%;
+ }
+ 
+ .right {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  width: 50%;
+}
+
+#container a {
+	 color:#c56bfa;
+ }
+ 
+ /* ★ site map ★ */
+ 
+ #containertoo {
+	 display: flex;
+	 margin: 0 auto;
+	 /**/
+	 justify-content: center;
+	 min-height: 60vh;
+	 max-width:80vh;
+	 color: var(--txt);
+	 padding:20px;
+ }
+ 
+ #containertoo a {
+	 color:#c56bfa;
+ }
+ 
+ .sitemap {
+	 padding:2vh;
+	 background-color:black;
+	 text-align:center;
+	 
+ }
+
+ .safe{
+	color:rgb(103, 246, 167);
+	padding:0%;
+	font-size:small;
+ }
+
+ .unsafe {
+	color:rgb(255, 106, 106);
+	padding:0%;
+	font-size:small;}
+ 
+ .lazytitle2 img {
+	 width:10em;
+ }
+ 
+ .computertitle2 img {
+	 width:16em;
+ }
+ 
+ .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li {
+	padding-left: 0%;
+	padding-bottom:1%;
+}
+h1{
+	font-weight: bolder;
+	font-size:large;
+}
+
+h2{
+	color:rgb(255, 106, 106);
+}
+
+h3{
+	color:rgb(103, 246, 167);
+}

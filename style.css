@@ -1,0 +1,374 @@
+:root {
+	--bgz: 1;
+	--contentz: 5;
+	
+	/* Colours */
+	--txt: white;
+	--bg: black;
+	
+	/* Background vars*/
+	--mainbg: url("imgs/spacecarpetbg.jpg");
+	--maincontentbg: url("imgs/spaceheybground.jpg");
+	--darkspacebg: url("imgs/darkspacebg.png");
+	--tamabg: url("imgs/spaceheybground.jpg");
+	--bluebg: url("imgs/spaceheybground.jpg");
+	--pixlbg: url("imgs/pixlinterior.jpg");
+	--garfbg: url("imgs/garfblink.gif");
+	--tamarightbg: url("imgs/puddlebg.jpg");
+	--poohbg: url("imgs/spaceheybground.jpg");
+}
+
+body {
+	background-image: var(--darkspacebg);
+	color: var(--txt);
+	font-family: 'Nunito', sans-serif;
+}
+
+ #container {
+    width: 1000px;
+    height: 750px;
+    display: flex;
+    margin: 0 auto;
+ }
+ 
+/* .computercontent{
+	width:950px; 
+	height:700px;
+	margin: 0 auto;
+	/*z-index:3;
+	margin-top:10px;*/
+
+.computerframe{
+	background-image: url("imgs/compoverlay.png");
+	justify-content:center;
+	position: absolute;
+	width:1000px; 
+	height:750px;
+	background-size:cover;
+	z-index:2;
+	margin: 0 auto;
+	margin-top:10px;
+}
+
+.lazytitle img {
+	z-index:4;
+	position:absolute;
+	margin-left: 363px;
+	margin-top:79px;
+	width:23%
+}
+
+.computertitle img {
+	z-index:4;
+	position:absolute;
+	margin-left: 305px;
+	margin-top:160px;
+	width:35%;
+}
+
+/* home music */
+
+.homemusic {
+	position:absolute;
+	margin-left:330px;
+	margin-top:-10px;
+	z-index:6;
+
+	}
+
+	.homemusiccred{
+		position:absolute;
+		margin-top:-5px;
+		margin-left:595px;
+		background-color:black;
+		color:yellow;
+		z-index:7;
+	}
+	
+	.audioplayer{
+		width:84%;
+		opacity:80%
+	}
+
+/* BACKGROUND DIVS */
+
+.tamatopbg{
+	/* background-image: var(--tamabg); */
+	width:106px;
+    height:101px;
+	z-index: var(--bgz);
+	background-color: #6ecccd;
+	margin-top:81px;
+	margin-left:58px;
+	transform:rotate(346deg);
+}
+
+.blueleftbg{
+	/* background-image: var(--bluebg); */
+	position:absolute;
+	width:163px;
+    height:138px;
+	z-index: var(--bgz);
+	background-color: #061831;
+	margin-top:295px;
+	margin-left:56px;
+}
+
+.pixlchixbg{
+	background-image: var(--pixlbg);
+	background-size: 180%;
+	position:absolute;
+	width:223px;
+    height:214px;
+	z-index: var(--bgz);
+	background-color: pink;
+	margin-top:496px;
+	margin-left:15px;
+}
+
+.garfbg{
+	background-image: var(--garfbg);
+	background-size:125%;
+	position:absolute;
+	width:158px;
+    height:136px;
+	z-index: var(--bgz);
+	background-color: orange;
+	margin-top:84px;
+	margin-left:793px;
+}
+
+.tamarightbg{
+	background-image: var(--tamarightbg);
+	background-size:140%;
+	position:absolute;
+	width:101px;
+    height:100px;
+	z-index: var(--bgz);
+	background-color: yellow;
+	margin-top:341px;
+	margin-left:854px;
+	transform:rotate(14deg);
+}
+
+.poohbg{
+	background-image: var(--poohbg);
+	background-size:100%;
+	position:absolute;
+	width:231px;
+    height:126px;
+	z-index: var(--bgz);
+	background-color: maroon;
+	margin-top:583px;
+	margin-left:743px;
+}
+
+.maincontentbg{
+	background-image: var(--mainbg);
+	background-size:70%;
+	position:absolute;
+	width:545px;
+    height:363px;
+	z-index: 0;
+	background-color: magenta;
+	margin-top:265px;
+	margin-left:258px;
+}
+
+
+/* CONTENT DIVS */
+
+.tamatop{
+	position:absolute;
+	width:106px;
+    height:101px;
+	z-index: var(--contentz);
+	margin-top:81px;
+	margin-left:60px;
+	transform:rotate(346deg);
+}
+
+.navlinkads {
+	position:absolute;
+	background-color:white;
+	opacity:92%;
+	width:200px;
+	padding:2px;
+	color:black;
+	font-size:9.5px;
+	text-align:center;
+	z-index: 4;
+	margin-top:0px;
+	margin-left:-75px;
+	transform:rotate(12deg)
+}
+
+.blueleft{
+	position:absolute;
+	width:163px;
+    height:138px;
+	z-index: var(--contentz);
+	margin-top:300px;
+	margin-left:52px;
+}
+
+	.homemouse img{
+		position:absolute;
+		width:80px;
+		margin-top:-20px;
+		
+	}
+	
+	.gamecontroller img{
+		position:absolute;
+		width:90px;
+		margin-left:74px;
+		margin-top:-5px;
+	}
+	
+	.kermitchat img{
+		position:absolute;
+		width:70px;
+		margin-top:65px;
+		margin-left:10px;
+	}
+	
+	.walkmanmusic img{
+		position:absolute;
+		width:80px;
+		margin-top:60px;
+		margin-left:84px;
+	}
+
+.pixlchix{
+	position:absolute;
+	width:203px;
+    height:114px;
+	z-index: var(--contentz);
+	margin-top:589px;
+	margin-left:-125px;
+	color:black;
+	text-align:right;
+}
+
+.pixlchix mark{
+	background-color:pink;
+	padding:2px;
+}
+
+.pixlcomp img{
+	position:absolute;
+	width:75px;
+	height:81px;
+	margin-left:-175px;
+	margin-top:8px;
+}
+
+.pixlmax img {
+	position:absolute;
+	width:50px;
+	height:37px;
+	margin-left:-77px;
+	margin-top:25px;
+}
+
+.garf{
+	position:absolute;
+	width:148px;
+    height:136px;
+	z-index: var(--contentz);
+	margin-top:91px;
+	margin-left:625px;
+	color:black;
+	overflow:hidden;
+}
+
+	.blinkiestxt img {
+		position:absolute;
+		width:90%;
+		opacity:85%;
+		margin-top:0px;
+		margin-left:-4px;
+	}
+	
+
+.tamaright{
+	position:absolute;
+	width:101px;
+    height:100px;
+	z-index: var(--contentz);
+	margin-top:341px;
+	margin-left:690px;
+	transform:rotate(14deg);
+}
+	.bubbles img {
+		position:absolute; 
+		margin-top:-25px;
+		margin-left:-30px;
+		height:150px; 
+		width:160px; 
+		overflow: hidden;
+	}
+	
+	.vaporeon img {
+		position:absolute; 
+		width:50px; 
+		opacity:80%
+	}
+	
+	.dogy img {
+		position:absolute; 
+		width:62px; 
+		opacity:100%; 
+		margin-left:35px; 
+		margin-top:7px;
+	}
+	
+	.kity img {
+		position:absolute; 
+		width:90px; 
+		opacity:100%; 
+		margin-left:-8px; 
+		margin-top:40px;
+	}
+	
+	.blueheart img {
+		position:absolute; 
+		width:30px; 
+		opacity:100%; 
+		margin-left:30px; 
+		margin-top:-5px; 
+		transform:rotate(343deg);
+	}
+
+.pooh{
+	position:absolute;
+	width:211px;
+    height:126px;
+	z-index: var(--contentz);
+	margin-top:588px;
+	margin-left:595px;
+
+}
+	
+	.morethingstxt img{
+		width:100%;
+		margin-top:7px;
+	}
+	
+	.ivemadetxt img{
+		width:90%;
+		margin-left:10px;
+	}
+	
+
+.maincontent iframe{
+	position:absolute;
+	width:555px;
+    height:485px;
+	z-index: 4;
+	margin-top:265px;
+	margin-left:90px;
+	border:none;
+	overflow: hidden;
+)
