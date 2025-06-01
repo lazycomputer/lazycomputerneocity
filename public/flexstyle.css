@@ -1,7 +1,6 @@
 
 body {
 	background-image: var(--backgroundimg);
-	
 	font:arial;
 }
 
@@ -14,29 +13,36 @@ body {
 }
 
 header {
-	flex: 1 1 80%;
-	background-color:var(--bg);
-	border: var(--borders);
-	padding:1em;
-	margin: 0 8rem;
+	flex: 1 1 100%;
+	/*background-color:var(--bg);*/
 	display:inline-flex;
-	justify-content:space-around;
+	justify-content:center;
 	color:var(--headertxt);
+	max-width: 80%;
 }
 
 main {
-	flex: 1 1 50%;
+	flex: 1 1 60%;
 	background-color:var(--bg);
 	border: var(--borders);
 	padding:1em;
-	margin: 1rem 5% 1rem 1%;
+	margin: 0.5rem 0.5rem 0.5rem 0.5rem;
 	display:inline-flex;
 	justify-content:center;
+	align-content: flex-start;
 	flex-flow: row wrap;
 	color:var(--maintxt);
 	}
 
-main img:first-of-type, main img:last-of-type{
+main a{
+	display:inline-flex;
+	flex-flow:row wrap;
+	justify-content:space-around;
+	align-items: center;
+	margin-bottom:0.4em;
+}
+
+/* main img:first-of-type, main img:last-of-type{
 	width:55%;
 	margin:0 1rem 1rem 1rem;
 }
@@ -44,15 +50,15 @@ main img:first-of-type, main img:last-of-type{
 main img:not(:first-of-type, :last-of-type){
 	width:45%;
 	margin:0 0 1rem 0;
-}
+}*/
 	
 main.third {
-	flex:1 1 60%
+	flex:1 1 10%;
 }
 
 aside { 
 	background-color:var(--bg);
-	border: var(--borders);
+	/*border: var(--borders);*/
 	padding:0.5em;
 	align-self:flex-start;
 	display:inline-flex;
@@ -60,16 +66,19 @@ aside {
 	flex-flow:column wrap;
 	}
 
+
 aside:first-of-type {
-	flex: 1 1 10%; 
+	flex: 1 1 15%; 
 	margin: 1rem 0 1rem 5%;
 	color:var(--asidetxt);
 	
 }
 
 aside:nth-of-type(2) {
-	flex: 1 1 10%; 
+	flex: 1 1 1%; 
 	margin: 1rem 2rem 1rem 0;
+	color:var(--asidetxt);
+	display:flec
 }
 	
 aside img{
@@ -78,11 +87,18 @@ aside img{
 	justify-content:center;
 	background-color:var(--asidetxt);
 }
+
 ul{
 	padding: 1em;
 }
 li ul{
-	padding:0.3em;
+	padding:0.5em;
+}
+
+nav em{
+	font-weight:bolder;
+	width:fit-content;
+	font-size: small;
 }
 
 footer {
@@ -90,9 +106,8 @@ footer {
 	background-color:var(--bg);
 	border: var(--borders);
 	padding:0.6rem;
-	margin: 0 15rem;
 	display:inline-flex;
-	justify-content:space-between;
+	justify-content:space-around;
 	color:var(--footertxt);
 }
 
@@ -115,9 +130,86 @@ h2 {
 	
 }
 
+h3 {
+	margin:0;
+	display: inline-flex;
+    padding: 0.5em;
+    font-size: 1em;
+    background-color: var(--bg);
+}
+
 p {
 	flex:1 1 100%;
 	margin:0.5rem 0;
+}
+
+#blinkies{
+	display:inline-flex;
+	flex-flow:row wrap;
+	justify-content:space-around;
+	width:100%
+	
+}
+
+#blinkies img{
+	width:11em;
+}
+
+#stamps{
+	display:inline-flex;
+	flex-flow:row wrap;
+	justify-content:space-around;
+	width:100%
+	
+}
+
+#stamps img{
+	width:7em;
+}
+
+#buttons{
+	display:inline-flex;
+	flex-flow:row wrap;
+	justify-content:space-around;
+	width:100%
+}
+
+#little{
+	display:inline-flex;
+	flex-flow:row wrap;
+	justify-content:space-around;
+	align-items: center;
+	width:100%;
+}
+
+#graphics{
+	display:inline-flex;
+	flex-flow:row wrap;
+	justify-content:space-around;
+	align-items: center;
+	width:100%;
+}
+
+#graphics img{
+	max-width: 12em;
+	max-height: 15em;
+}
+
+#thanks {
+	display:inline-flex;
+	flex-flow:row wrap;
+	justify-content:space-around;
+	align-items: center;
+	width:100%;
+}
+
+#thanks img{
+	width:100%;
+}
+
+main h3 {
+	flex:1 1 100%;
+	font-size: large;
 }
 
 @media screen and (max-width: 1024px) {
@@ -134,3 +226,4 @@ p {
 	--borders: double white;
 	--txt: white;
 }*/
+

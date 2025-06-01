@@ -99,14 +99,33 @@ body {
 		margin-bottom:-10px;
 	}
 	
+	.everythingsnew {
+		display:inline-flex;
+		justify-content:space-around;
+		width:100%;
+	}
+
 	.everythingsnew img{
-		width:255px;
-		margin-top:-35px;
+		width:85px;
+		margin-top:-45px;
 		margin-bottom:-13px;
 	}
 	
+	.newbox {
+		display:inline-flex;
+		flex-flow:row wrap;
+		justify-content:space-around;
+		align-items: center;
+		margin-top:35px;
+	}
+
+	.newbox span{
+		background-color:#001440;
+	}
+
 	.newbox p {
 		margin-top:0px;
+		text-align: center;
 	}
 	
 
@@ -116,40 +135,68 @@ body {
 	width:535px;
     height:473px;
 	border: var(--containerborders); 	
+	display:inline-flex;
+	align-items:center;
+	align-content:flex-start;
+	flex-flow:row wrap;
+	justify-content:space-around;
+	padding-top:20px;
 }
 
 	.zines img{
-		position:absolute;
-		margin-left:20px;
 		width:200px;
-		margin-top:40px;
 	}
 	
 	.zinestitle img{
 		width:150px;
-		margin-left:50px;
-		margin-top:130px;
 	}
 	
+	.updates{
+		width:170px;
+	}
+
 	.updates img{
-		position:absolute;
-		margin-left:290px;
-		width:200px;
-		margin-top:-200px;
+		width:100%;
+		margin-left:-40px;
 	}
 	
-	.updatestitle img{
-		position:absolute;
-		width:160px;
-		margin-left:235px;
-		margin-top:-171px;
+	.updatestitle {
+		width:100px;
+		display:inline-flex;
+		flex-flow:column;
+		font-size:larger;
+		text-align: right;
+		color:white;
+		margin-left:20px;
+	}
+
+	.updatestitle strong{
+		font-weight: bolder;
+	}
+
+	.updatestitle p{
+		margin:0;
 	}
 	
 	.comingsoon img{
 		width:110px;
-		position:absolute;
-		margin-left:240px;
-		margin-top:-130px;
+	}
+
+	.blog{
+		width:310px;
+		padding-top:0;
+		display:inline-flex;
+		align-items: center;
+	}
+	
+	.blog img{
+		width:100%;
+	}
+
+	.blog strong{
+		color:#f9e87a;
+		font-weight:bolder;
+		font-size:xx-large;
 	}
 
 /* cool new */
@@ -363,10 +410,6 @@ body {
 		margin-top:-340px;
 	}
 	
-	.constructdivider img{
-		
-	}
-	
 	.thisiswip{
 		position:absolute;
 		background-color: orange;
@@ -400,4 +443,40 @@ body {
 		margin-left:180px;
 		margin-top:-100px;
 	}
-	
+
+	/* blinkies warning */
+
+#graphicswarn {
+	width:535px;
+    height:473px;
+	border: var(--containerborders); 	
+	display:inline-flex;
+	align-items:center;
+	align-content:flex-start;
+	flex-flow:row wrap;
+	justify-content:center;
+}
+
+	#graphicswarn h1{
+		font-weight:bolder;
+		font-size:xx-large;
+		color:red;
+		background-color: black;
+		padding:0.25em;
+		margin:0;
+		display:inline-flex;
+		align-items:center;
+		justify-content:center;
+	}
+
+	.double{
+		width:10%;
+	}
+
+	#graphicswarn p{
+		color:white;
+		width:90%;
+		background-color: black;
+		padding:0.3em;
+		margin:0;
+	}
