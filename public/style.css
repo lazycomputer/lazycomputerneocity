@@ -73,7 +73,6 @@ body {
 	margin-left:330px;
 	margin-top:-10px;
 	z-index:6;
-
 	}
 
 	.homemusiccred{
@@ -371,4 +370,20 @@ body {
 	margin-left:90px;
 	border:none;
 	overflow: hidden;
+}
+
+.sitemap{
+	position:absolute;
+	width:148px;
+    height:136px;
+	z-index: 6;
+	margin-top:51px;
+	margin-left:672px;
+	overflow:hidden;
+}
+
+.sitemap a{
+	color:pink;
+	font-weight: bolder;
+	font-size: x-large;
 }
