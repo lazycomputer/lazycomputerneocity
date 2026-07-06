@@ -1,0 +1,126 @@
+:root{
+}
+
+body, html {
+	height:100%;
+	width:100%;
+	padding: 0;
+	margin:0;
+}
+
+body {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 13.5px;
+	color:white;
+	background-color:purple;
+}
+
+
+#container {
+	display:flex;
+	flex-flow: row wrap;
+	align-content:flex-start;
+	/*background-image: url('imgs/backgrounds/rptbckgrd_starpulse.gif');*/
+	background-position: center top;
+    background-repeat: repeat;
+	height:100%;
+	
+	
+	/*background-color: white; */
+}
+
+/* ~~ ASIDE ~~ */
+
+aside {
+	display:inline-flex;
+	flex-flow:column;
+	flex: 1 10 auto;
+	align-items:center;
+	height:91%;
+	max-width:15vw;
+	box-sizing: border-box;
+	background-image: url(imgs/backgrounds/rptbckgrd_blackstaticstars.gif);
+	background-position: center top;
+    background-repeat: repeat;
+	border: 15px solid transparent; /* Required for border-image */
+    border-image: url(imgs/borders/plasmaborder.png) 90 round;
+	border-image-outset: 9px;
+	z-index:2;
+	overflow: scroll;
+	margin-left:5px;
+	padding:-10px;
+}
+
+img.icon {
+	display:inline-flex;
+	flex-flow:row;
+	width:100%;
+	background-image: url(imgs/backgrounds/rptbckgrd_lightpurplesparkles.gif);
+	background-position: center top;
+    background-repeat: repeat;
+}
+
+img.navbutt {
+	width:45%;
+}
+
+.navtitle {
+	width:100%;
+	font-size:1.5vw;
+	text-align:center;
+	align-items:center;
+	padding-top:5px;
+	margin-left:-0.3vw;
+	margin-bottom:-1em;
+}
+
+nav a {
+	color: #9999FF;
+}
+
+a.zinelinktitles {
+	font-size:1.2vw;
+}
+
+ul {
+	list-style-type:none;
+	padding:0;
+	font-size:12px;
+	text-align: center;
+}
+
+/* ~~ HEADER ~~ */
+
+header {
+	display:inline-flex;
+	flex: 1 1 100%;
+	flex-flow:row wrap;
+	align-items:flex-end;
+	height:7%;
+	box-sizing: border-box;
+	background-image: url('imgs/backgrounds/rptbckgrd_prettybubbles.jpg');
+	background-position: center top;
+    background-repeat: repeat;
+	background-size: 5em;
+	border-radius: 150px 15px 0px 0px;
+	/*margin-left:6em;*/
+}
+
+
+/* ~~ MAIN FRAME ~~ */
+
+main {
+	display:inline-flex;
+	background-image: url('imgs/backgrounds/rptbckgrd_starpulse.gif');
+	flex: 10 1 auto;
+	height:92.5%;
+	align-self:stretch;
+	box-sizing: border-box;
+}
+
+main iframe {
+	display:inline-flex;
+	width:100%;
+	height:100%;
+	align-self:stretch;
+}
