@@ -49,6 +49,13 @@ main {
 	flex: 1 1 100%;
 }
  
+.stamps {
+	display:inline-flex;
+	flex: row;
+	flex:1 1 100%;
+	justify-content:center;
+} 
+ 
 .indextxt{
 	background:rgba(0,0,0,0.4);
 	max-width:90vh;
