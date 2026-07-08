@@ -41,6 +41,10 @@ main {
 	border-image: url(imgs/borders/silverstarborder.png) 119 round
  }
  
+ main img {
+	 width:auto;
+ }
+ 
 .wide {
 	flex: 1 1 100%;
 }
@@ -50,6 +54,7 @@ main {
 	max-width:90vh;
 	padding:0 1em;
 	margin-top:1em;
+	flex: 1 0 100%;
  }
  
  .comeonin{
