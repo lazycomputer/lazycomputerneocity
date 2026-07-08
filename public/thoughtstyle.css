@@ -1,0 +1,74 @@
+body, html {
+	height:100%;
+	width:100%;
+	padding:0;
+	margin:0;
+}
+
+#container {
+	display:flex;
+	flex-flow: column-reverse;
+	justify-content:flex-start;
+	align-content:flex-start;
+	gap:0.5em;
+	height:100%;
+	width:100%;
+	background-image: url('imgs/backgrounds/daniele_41.jpg');
+	 background-attachment: fixed;
+	background-position: left top;
+	background-size:150vh;
+	background-color: black;
+	overflow:scroll;
+	color:white;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+.sticker {
+	z-index:2;
+	position:absolute;
+}
+
+section.thought {
+	display: inline-flex;
+	flex-flow:row wrap;
+	border: 15px solid transparent;
+	margin:1em 2em 1em 2em;
+	padding:0.5em;
+	box-sizing: border-box;
+	max-width:80%;
+}
+
+section.thought:last-child{
+	margin:6em 2em 0 2em;
+}
+
+section.thought:nth-child(odd){
+	align-self:flex-start;
+}
+
+section.thought:nth-child(even){
+	align-self:flex-end;
+}
+
+section.thought:first-child{
+	margin:0 2em 2em 2em;
+}
+
+#pagetop {
+	margin:1.5em;
+	padding:1em;
+	text-align:center;
+	background-image: url(imgs/backgrounds/skyboxes_49.png);
+	background-size:100vw;
+	border: 15px solid transparent;
+	border-image: url(imgs/borders/blackstarborder.png) 80 round;
+	color:white;
+}
+
+#pagetop span{
+	background-color: #0F58D2;
+}
+
+#pagetop a{
+	font-weight:700;
+}

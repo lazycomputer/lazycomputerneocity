@@ -8,12 +8,13 @@
 	
 	/* Background vars*/
 	--mainbg: url("imgs/spacecarpetbg.jpg");
-	--maincontentbg: url("imgs/spaceheybground.jpg");
+	--maincontentbg: url("imgs/backgrounds/metalheart_8.jpg");
 	--darkspacebg: url("imgs/darkspacebg.png");
 }
 
 body {
-	background-image: var(--darkspacebg);
+	background-size: 40em;
+	background-image: var(--mainbg);
 	color: var(--txt);
 	font-family: 'Nunito', sans-serif;
 }
@@ -23,73 +24,38 @@ body {
 	 margin: 0 auto;
 	 /**/
 	 justify-content: center;
-	 max-width:90vh;
+	 max-width:100vh;
 	 color: var(--txt);
-	 padding:20px;
+	 padding:10px;
  }
 
 main {
-    display:flex;
+    display:inline-flex;
 	flex-flow: row wrap;
 	align-content:center;
 	justify-content:center;
+	background-image: var(--maincontentbg);
+	background-size: 100%;
+	padding:1em 0;
+	border: 15px solid transparent;
+	border-image: url(imgs/borders/silverstarborder.png) 119 round
  }
  
 .wide {
 	flex: 1 1 100%;
 }
-
- .lazytitle {
-	 justify-content:center;
- }
- 
-  .lazytitle img{
-	 width:50%;
-	 max-width:35vh;
- }
-
- .computertitle {
-	 justify-content:center;
- }
-
- .computertitle img {
-	width:75%;
-	margin-top:-1em;
-	max-width:55vh;
- }
  
 .indextxt{
-	background-color:var(--bg);
+	background:rgba(0,0,0,0.4);
 	max-width:90vh;
+	padding:0 1em;
+	margin-top:1em;
  }
-
- .new{
-	justify-content: center;
-	align-items:flex-start;
-	display:inline-flex;
-	flex-flow:row wrap;
-	padding: 0;
-	max-width:10em;
-	font-size:1.5em;
-	font-weight: bolder;
-	text-align: center;
- }
-
-.new h1 {
-	padding:0;
-	margin:0;
-}
-
- .new img{
-	width:80%;
-	margin-top:-1em;
-	margin-bottom:-1.9em;
- }
-
-
- .comeonin img{
-	 width:70%;
-	 
+ 
+ .comeonin{
+	 width:14em;
+	 padding-top:1em;
+	 align-self:center;
  }
  
  .comeonintxt {
@@ -97,6 +63,11 @@ main {
 	display:inline-flex;
 	justify-content:center;
  }
+ 
+ .enterlink {
+	margin-top:-1em;
+ }
+ 
  
  .right {
   display: block;

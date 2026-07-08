@@ -12,7 +12,7 @@ body {
 	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 13.5px;
 	color:white;
-	background-color:purple;
+	background-color:black;
 }
 
 
@@ -60,6 +60,12 @@ img.icon {
     background-repeat: repeat;
 }
 
+img.carpet {
+	margin-top:-20px;
+	width:50%;
+	align-self:flex-end;
+	}
+
 img.navbutt {
 	width:45%;
 }
@@ -71,7 +77,7 @@ img.navbutt {
 	align-items:center;
 	padding-top:5px;
 	margin-left:-0.3vw;
-	margin-bottom:-1em;
+
 }
 
 nav a {
@@ -79,7 +85,16 @@ nav a {
 }
 
 a.zinelinktitles {
-	font-size:1.2vw;
+	font-size:1.4vw;
+	line-height:1;
+}
+
+details.zines {
+	
+}
+
+summary {
+	margin-bottom:1em;
 }
 
 ul {
@@ -89,24 +104,79 @@ ul {
 	text-align: center;
 }
 
+li {
+	margin-top:0.5em;
+}
+
 /* ~~ HEADER ~~ */
 
 header {
 	display:inline-flex;
 	flex: 1 1 100%;
-	flex-flow:row wrap;
-	align-items:flex-end;
-	height:7%;
+	flex-flow:row;
+	align-items:flex-start;
+	justify-content:space-between;
+	gap:1em;
+	height:8%;
+	width:100%;
 	box-sizing: border-box;
-	background-image: url('imgs/backgrounds/rptbckgrd_prettybubbles.jpg');
+	background-image: url('imgs/backgrounds/metalheart_167.jpg');
 	background-position: center top;
     background-repeat: repeat;
-	background-size: 5em;
+	background-size: auto 240%;
 	border-radius: 150px 15px 0px 0px;
+	overflow:display;
 	/*margin-left:6em;*/
+	z-index:8;
 }
 
+header div.spacers {
+	display:inline-flex;
+	flex-flow:row;
+	align-items:flex-start;
+	justify-content:space-between;
+	gap:2.5em;
+	height:100%;
+	overflow:display;
+}
 
+header div.pad {
+	width:13vw;
+}
+
+header img.homolink {
+	transform: rotate(-1deg);
+	width:8.5em;
+	margin-top:2px;
+}
+
+header div.spacers:last-child {
+	gap:0.7em;
+}
+
+img.headerdecoration{
+	overflow:shown;
+	width:4.5em;
+	margin-top:1px;
+}
+
+img.headerdecoration:last-child{
+	margin-top:9px;
+	margin-right:3px;
+}
+
+header p {
+	font-size:10px;
+	margin-top:-40px;
+	margin-left:-5px;
+	text-align:center;
+}
+
+header img.dslink {
+	transform: rotate(1deg);
+	width:5em;
+	margin-top:2px;
+}
 /* ~~ MAIN FRAME ~~ */
 
 main {
