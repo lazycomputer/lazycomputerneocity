@@ -38,7 +38,7 @@ main {
 	background-size: 100%;
 	padding:1em 0;
 	border: 15px solid transparent;
-	border-image: url(imgs/borders/silverstarborder.png) 119 round
+	border-image: url(imgs/borders/silverstarborder.png) 119 round;
  }
  
  main img {

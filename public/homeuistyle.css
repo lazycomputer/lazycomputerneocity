@@ -90,7 +90,7 @@ a.zinelinktitles {
 }
 
 details.zines {
-	
+	margin-top:1em;
 }
 
 summary {
@@ -146,7 +146,7 @@ header div.pad {
 
 header img.homolink {
 	transform: rotate(-1deg);
-	width:8.5em;
+	width:10.5em;
 	margin-top:2px;
 }
 

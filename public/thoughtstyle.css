@@ -35,11 +35,15 @@ section.thought {
 	margin:1em 2em 1em 2em;
 	padding:0.5em;
 	box-sizing: border-box;
-	max-width:80%;
+	max-width:40em;
+}
+
+.thought img {
+	max-width:20em;
 }
 
 section.thought:last-child{
-	margin:6em 2em 0 2em;
+	margin:6em 0 0 2em;
 }
 
 section.thought:nth-child(odd){
